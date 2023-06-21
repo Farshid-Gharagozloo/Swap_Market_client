@@ -1,0 +1,41 @@
+@import '../../styles/all';
+
+.header {
+    background-color: #EDEFEE;
+    margin: 0;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+
+    @include tablet {
+        padding: 0 2rem;
+        height: 11.625rem;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+
+    &__logo-img{
+        width: 5rem;
+        padding: 1rem 0;
+    }
+
+    &__titles{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    &__page {
+        color: #2FA9B8;
+        font-size: 1.5rem;
+        text-decoration: none;
+        list-style-type:none;
+    }
+}

@@ -8,19 +8,12 @@ export default function SignupForm (){
         <form className='signup-form'>
             <div className="signup-form__wrapper">
                 <div className="signup-form__personal-info">
-                    <h3 className="signup-form__title">Sign up Form</h3>
+                    <h3 className="signup-form__title">Personal Information</h3>
                     <Input
                         placeholder="User Name"
                         name="user_name"
                         // hasError={formError.user_name}
                         // onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
-                    />
-
-                    <Input
-                        placeholder="Password"
-                        name="password"
-                        // hasError={formError.password}
-                        // onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     />
 
                     <Input
@@ -36,9 +29,17 @@ export default function SignupForm (){
                         // hasError={formError.last_name}
                         // onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
                     />
+
+                    <Input
+                        placeholder="Password"
+                        name="password"
+                        // hasError={formError.password}
+                        // onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    />
                 </div>
 
                 <div className="signup-form__address-info">
+                    <h3 className="signup-form__title">Contact Details</h3>
                     <Input
                         placeholder="Address"
                         name="address"
