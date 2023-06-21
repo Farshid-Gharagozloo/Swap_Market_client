@@ -1,0 +1,95 @@
+@import '../../styles/all';
+
+.input {
+  @include text-body-medium;
+  @include push-ends(rem(4px));
+
+  width: 100%;
+  height: rem(36px);
+  padding: rem(4px) rem(16px);
+  border-radius: rem(20px);
+  border: rem(1px) solid $color-cloud;
+  outline: none;
+
+  &::placeholder {
+    @include text-body-medium;
+
+    color: $color-slate;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $color-instock-indigo;
+  }
+
+  &--error {
+    border-color: $color-red;
+  }
+
+  &--textarea {
+    @include text-body-medium;
+
+    min-height: rem(120px);
+    resize: none;
+
+    &::placeholder {
+      @include text-body-medium;
+
+      color: $color-slate;
+    }
+  }
+
+  &--dropdown {
+    --webkit-appearance: none;
+    --moz-appearance: none;
+
+    appearance: none;
+    background: url('../../assets/icons/arrow_drop_down-24px.svg') no-repeat;
+    background-size: rem(24px);
+    background-position: calc(100% - 16px) center;
+    padding-right: rem(40px);
+  }
+
+  &--search {
+    margin: 0;
+    background: url('../../assets/icons/search-24px.svg') no-repeat;
+    background-size: rem(24px);
+    background-position: calc(100% - 16px) center;
+    padding-right: rem(40px);
+  }
+
+  &__warning {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    gap: rem(4px);
+
+    &--visible {
+      visibility: visible;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__label {
+    @include text-labels-links-buttons;
+  }
+
+  &__icon {
+    @include box(rem(16px));
+  }
+
+  &__error-message {
+    @include text-body-small;
+
+    color: $color-red;
+  }
+
+  @include tablet {
+    &__input {
+      height: rem(38px);
+    }
+  }
+}

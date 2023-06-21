@@ -1,0 +1,33 @@
+@import 'sass-rem';
+/* stylelint-disable*/
+/* ==========================================================================
+Variables
+========================================================================== */
+$width-mobile: 320px;
+$width-tablet: 768px;
+$width-desktop: 1280px;
+
+// Max and Min screen sizes
+$max-width: rem(1020px);
+$min-width: $width-mobile;
+
+/* Spacing
+========================================================================== */
+$spacing-unit: rem(4px);
+$spacing-unit--xx-small: rem(8px);
+$spacing-unit--x-small: rem(16px);
+$spacing-unit--small: rem(24px);
+$spacing-unit--medium: rem(32px);
+$spacing-unit--x-medium: rem(36px);
+$spacing-unit--large: rem(40px);
+$spacing-unit--x-large: rem(48px);
+
+// page gutter
+$page-gutter: $spacing-unit--x-small;
+$page-gutter--tablet: $spacing-unit--small;
+$page-gutter--desktop: $spacing-unit--small;
+
+// page margin
+$page-margin: $spacing-unit--x-small;
+$page-margin--tablet: $spacing-unit--medium;
+$page-margin--desktop: 0;

@@ -1,0 +1,88 @@
+/* --------------------------------
+Typography
+-------------------------------- */
+$font-primary: 'Titillium Web';
+
+@mixin text-page-header {
+  color: $color-instock-black;
+  font-weight: 600;
+  font-size: rem(28px);
+  line-height: rem(36px);
+
+  @include tablet {
+    font-size: rem(32px);
+    line-height: rem(40px);
+  }
+}
+
+@mixin text-subheader {
+  color: $color-instock-black;
+  font-weight: 600;
+  font-size: rem(20px);
+  line-height: rem(28px);
+
+  @include tablet {
+    font-size: rem(24px);
+    line-height: rem(32px);
+  }
+}
+
+@mixin text-labels-links-buttons {
+  color: $color-instock-black;
+  font-weight: 600;
+  font-size: rem(13px);
+  line-height: rem(20px);
+
+  @include tablet {
+    font-size: rem(14px);
+    line-height: rem(22px);
+  }
+}
+
+@mixin text-table-header {
+  color: $color-slate;
+  font-weight: 600;
+  font-size: rem(11px);
+  line-height: rem(16px);
+
+  @include tablet {
+    font-size: rem(12px);
+    line-height: rem(18px);
+  }
+}
+
+@mixin text-body-large {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: rem(15px);
+  line-height: rem(26px);
+
+  @include tablet {
+    font-size: rem(16px);
+    line-height: rem(28px);
+  }
+}
+
+@mixin text-body-medium {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: rem(13px);
+  line-height: rem(20px);
+
+  @include tablet {
+    font-size: rem(14px);
+    line-height: rem(22px);
+  }
+}
+
+@mixin text-body-small {
+  color: $color-instock-black;
+  font-weight: 400;
+  font-size: rem(11px);
+  line-height: rem(16px);
+
+  @include tablet {
+    font-size: rem(12px);
+    line-height: rem(18px);
+  }
+}

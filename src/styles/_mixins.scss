@@ -1,0 +1,110 @@
+@use './variables' as *;
+
+/* ==========================================================================
+Mixins
+========================================================================== */
+
+/* Media Queries
+========================================================================== */
+@mixin tablet {
+  @media screen and (min-width: $width-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $width-desktop) {
+    @content;
+  }
+}
+
+/* Mixins for padding and margin
+========================================================================== */
+// Margin top and bottom
+@mixin push-ends($spacing: $spacing-unit) {
+  margin: {
+    top: $spacing;
+    bottom: $spacing;
+  }
+}
+
+// Margin left and right
+@mixin push-sides($spacing: $spacing-unit) {
+  margin: {
+    left: $spacing;
+    right: $spacing;
+  }
+}
+
+// Margin auto - aligning things to the middle
+@mixin push-auto {
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// Padding top and bottom
+@mixin soft-ends($top, $bottom: $top) {
+  padding: {
+    top: $top;
+    bottom: $bottom;
+  }
+}
+
+// Padding left and right
+@mixin soft-sides($padding: $padding-unit) {
+  padding: {
+    left: $padding;
+    right: $padding;
+  }
+}
+
+/* MIxins Padding and Margin
+========================================================================== */
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* Visibility
+========================================================================== */
+// Hide mixins
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
+@mixin visible($state: 'block') {
+  display: string.unquote($state);
+  visibility: visible;
+}
+
+/* Custom mixins for InStock
+========================================================================== */
+@mixin responsive-padding {
+  padding: rem(16px);
+
+  @include tablet {
+    padding: rem(36px);
+  }
+}
+
+@mixin responsive-margin {
+  @include push-sides($page-margin);
+
+  @include tablet {
+    @include push-sides($page-margin--tablet);
+  }
+
+  @include desktop {
+    @include push-auto;
+
+    max-width: $max-width;
+  }
+}
+
+@mixin instock-box-shadow {
+  box-shadow: rem(0px) rem(2px) rem(5px) rgb(19 24 44 / 10%);
+  border-radius: rem(3px);
+}
