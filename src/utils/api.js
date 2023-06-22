@@ -10,3 +10,5 @@ axios.defaults.params = {
 };
 
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
+
+export const getToken = (userPass) => axios.post('/profile/login', userPass);

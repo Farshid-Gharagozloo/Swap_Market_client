@@ -13,6 +13,13 @@ export function signupFromRules(formData) {
     };
 }
 
+export function loginFromRules(formData) {
+  return {
+    user_name: validator.isEmpty(formData.user_name),
+    password: validator.isEmpty(formData.password),
+  };
+}
+
 export function formValidate(rules) {
     let result = true;
     for (const key in rules) {
