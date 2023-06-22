@@ -20,6 +20,17 @@ export function loginFromRules(formData) {
   };
 }
 
+export function addItemRules(formData) {
+  return {
+    name: validator.isEmpty(formData.name),
+    user_id: !validator.isNumeric(String(formData.user_id)),
+    category: validator.isEmpty(formData.category),
+    description: validator.isEmpty(formData.description),
+    interchangeable: validator.isEmpty(formData.interchangeable),
+    price: !validator.isNumeric(String(formData.price)),
+  };
+}
+
 export function formValidate(rules) {
     let result = true;
     for (const key in rules) {

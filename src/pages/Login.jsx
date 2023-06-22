@@ -7,7 +7,8 @@ export default function Login(){
     const loginSubmit = async (user) => {
         try {
             const loginUser = await getToken(user);
-            console.log(loginUser);
+            // sessionStorage.authToken = response.data.token;
+            console.log(loginUser.data.token);
         } catch (error) {
             console.log(error);
         }
