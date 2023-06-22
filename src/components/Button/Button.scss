@@ -1,0 +1,66 @@
+@import '../../styles/all';
+
+.button {
+  @include text-labels-links-buttons;
+
+  width: 100%;
+  height: 36px;
+  padding: rem(8px) rem(16px);
+  border: rem(1px) solid $color-light-sea;
+  border-radius: 20px;
+  background-color: $color-light-sea;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+
+  &:hover {
+    background-color: $color-graphite;
+  }
+
+  &--delete {
+    border-color: $color-red;
+    background-color: $color-red;
+  }
+
+  &--secondary {
+    background-color: $color-white;
+    border-color: $color-cloud;
+    color: $color-slate;
+
+    &:hover {
+      background-color: $color-white;
+      border-color: $color-instock-indigo;
+      color: $color-instock-indigo;
+    }
+  }
+
+  &--edit {
+    padding: 0;
+    width: 36px;
+  }
+
+  &__text {
+    margin-left: rem(4px);
+    display: none;
+  }
+
+  &__icon {
+    @include box(rem(20px));
+  }
+
+  @include tablet {
+    width: fit-content;
+    height: 38px;
+
+    &--edit {
+      padding: 8px 16px;
+    }
+
+    &__text {
+      display: inline-block;
+      visibility: visible;
+    }
+  }
+}

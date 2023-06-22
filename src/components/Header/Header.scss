@@ -1,7 +1,7 @@
 @import '../../styles/all';
 
 .header {
-    background-color: #EDEFEE;
+    background-color: $color-grey;
     margin: 0;
     height: 15rem;
     display: flex;
@@ -33,7 +33,7 @@
     }
 
     &__page {
-        color: #2FA9B8;
+        color: $color-light-sea;
         font-size: 1.5rem;
         text-decoration: none;
         list-style-type:none;
