@@ -1,6 +1,4 @@
 import axios from 'axios';
-// import {REACT_APP_API_URL} from '../../.env'; 
-
 
 export const DEFAULT_API_KEY = process.env.REACT_APP_API_KEY || 'ThisIsAFallbackApiKey';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
@@ -9,10 +7,16 @@ axios.defaults.params = {
   api_key: DEFAULT_API_KEY,
 };
 
+const userToken = { headers: {
+  Authorization: `Bearer ${sessionStorage.authToken}`,
+}, };
+
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
 
 export const getToken = (userPass) => axios.post('/profile/login', userPass);
 
 export const addNewProduct = (newItem) => axios.post('/product/add', newItem);
 
-export const getUser = (id) => axios.get(`/profile/${id}`);
+export const getUser = (id) => axios.get(`/profile/${id}`,userToken);
+
+export const getUserItemList = (id) => axios.get(`/list/user/${id}`,userToken);

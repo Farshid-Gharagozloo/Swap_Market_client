@@ -26,7 +26,7 @@ export default function ProfilePage (){
 
     return (
         <>
-            <UserProfile profileInfo={userInfo}/>
+            <UserProfile profileInfo={userInfo} user_id={id}/>
         </>
     );
 }

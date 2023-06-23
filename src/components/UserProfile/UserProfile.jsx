@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
+import { getUserItemList } from "../../utils/api";
+import ItemCard from "../ItemCard/ItemCard";
+import { useParams } from "react-router-dom";
 
 
 export default function UserProfile ({profileInfo}){
     const {first_name, last_name, address, postal_code, email, contact_number} = profileInfo;
+
+    const [itemList, setItemList] = useState([]);
+    const {id} = useParams();
+
+    useEffect(() => {
+        getUserItemList(id)
+            .then((response) => {
+                setItemList(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }, [id]);
+
+
     return (
         <section className="user-profile">
             <div className="user-profile__information">
@@ -29,6 +48,13 @@ export default function UserProfile ({profileInfo}){
                 </ul>
             </div>
             <div className="user-profile__products">
+                {
+                    itemList.map((item) => {
+                        return (
+                            <ItemCard key={item.id} item={item}/>
+                        );
+                    })
+                }
             </div>
         </section>
     );
