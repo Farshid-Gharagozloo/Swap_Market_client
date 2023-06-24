@@ -31,6 +31,18 @@ export function addItemRules(formData) {
   };
 }
 
+export function editProfileFromRules(formData) {
+  return {
+    user_name: validator.isEmpty(formData.user_name),
+    first_name: validator.isEmpty(formData.first_name),
+    last_name: validator.isEmpty(formData.last_name),
+    address: validator.isEmpty(formData.address),
+    postal_code: validator.isEmpty(formData.postal_code),
+    email: !validator.isEmail(formData.email),
+    contact_number: !validator.isNumeric(String(formData.contact_number)),
+  };
+}
+
 export function formValidate(rules) {
     let result = true;
     for (const key in rules) {

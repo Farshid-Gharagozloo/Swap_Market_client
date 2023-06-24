@@ -1,0 +1,43 @@
+import { editUserProfile, getUser } from "../utils/api";
+import PageHeader from "../components/PageHeader/PageHeader";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import EditProfileForm from "../components/EditProfileForm/EditProfileForm";
+
+export default function EditProfile (){
+
+    const [editUser, setEditUser] = useState(undefined);
+
+    const { id } = useParams();
+
+    const handleSubmit = async (userInfo) => {
+        try {
+            const editInfo = await editUserProfile(id, userInfo);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getUser(id)
+            .then((response) =>{
+                setEditUser(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [id]);
+
+    if (!editUser){
+        return (
+            <h5>Loading...</h5>
+        );
+    }
+
+    return (
+        <>
+            <PageHeader title="Sign up" />
+            <EditProfileForm onSubmit={handleSubmit} editUser={editUser}/>
+        </>
+    );
+}

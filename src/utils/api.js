@@ -31,3 +31,5 @@ export const getCategoryList = () => axios.get('/product/categorylist');
 export const editProductItem = (id, editItem) => axios.put(`/product/${id}`,editItem);
 
 export const getProductItem = (id) => axios.get(`/product/${id}`);
+
+export const editUserProfile = (id, userInfo) => axios.put(`/profile/${id}`, userInfo);

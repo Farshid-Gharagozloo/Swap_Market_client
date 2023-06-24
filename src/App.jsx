@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import AddProduct from './pages/AddProduct';
 import ProfilePage from './pages/ProfilePage';
 import EditProduct from './pages/EditProduct';
+import EditProfile from './pages/EditProfile';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/user/:id' element={<ProfilePage/>} />
           <Route path='/additem' element={<AddProduct/>} />
           <Route path='/user/product/:id' element={<EditProduct/>} />
+          <Route path='/user/edit/:id' element={<EditProfile/>} />
         </Routes>
       </div>
     </div>
