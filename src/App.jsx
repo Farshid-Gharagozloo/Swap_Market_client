@@ -5,6 +5,7 @@ import './app.scss';
 import Login from './pages/Login';
 import AddProduct from './pages/AddProduct';
 import ProfilePage from './pages/ProfilePage';
+import EditProduct from './pages/EditProduct';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/user/:id' element={<ProfilePage/>} />
           <Route path='/additem' element={<AddProduct/>} />
+          <Route path='/user/product/:id' element={<EditProduct/>} />
         </Routes>
       </div>
     </div>

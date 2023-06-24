@@ -13,7 +13,7 @@ export default function Header() {
                 <ul className="header__titles">
                     <li className="header__page">Home Page</li>
                     <li className="header__page">Sign up</li>
-                    <li className="header__page">Log in</li>
+                    <li className="header__page">Sign in</li>
                     <li className="header__page">About</li>
                 </ul>
             </div>

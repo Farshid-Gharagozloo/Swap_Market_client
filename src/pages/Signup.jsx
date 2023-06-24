@@ -1,6 +1,6 @@
 import SignupForm from "../components/SignupForm/SignupForm";
 import { addUser } from "../utils/api";
-
+import PageHeader from "../components/PageHeader/PageHeader";
 
 
 export default function Signup (){
@@ -15,6 +15,7 @@ export default function Signup (){
 
     return (
         <>
+            <PageHeader title="Sign up" />
             <SignupForm onSubmit={handleSubmit} />
         </>
     );

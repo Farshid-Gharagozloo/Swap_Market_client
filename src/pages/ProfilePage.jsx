@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import UserProfile from "../components/UserProfile/UserProfile";
 import { useEffect, useState } from "react";
 import { getUser } from "../utils/api";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 
 
@@ -26,6 +27,7 @@ export default function ProfilePage (){
 
     return (
         <>
+            <PageHeader title={userInfo.user_name} />
             <UserProfile profileInfo={userInfo} user_id={id}/>
         </>
     );

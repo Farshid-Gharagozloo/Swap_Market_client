@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AddProductForm from "../components/AddProductForm/AddProductForm";
 import { addNewProduct, getCategoryList } from "../utils/api";
+import PageHeader from "../components/PageHeader/PageHeader";
 
 
 export default function AddProduct (){
@@ -34,6 +35,7 @@ export default function AddProduct (){
 
     return (
         <>
+            <PageHeader title="Add Your Item" />
             <AddProductForm onSubmit={addItemSubmit} categoryList={categoryList} />
         </>
     );

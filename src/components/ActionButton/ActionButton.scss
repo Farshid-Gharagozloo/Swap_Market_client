@@ -1,0 +1,17 @@
+@import '../../styles/all';
+
+.action {
+  @include box(rem(24px));
+
+  border-radius: rem(3px);
+
+  &__icon {
+    aspect-ratio: 1;
+    height: 100%;
+  }
+
+  &:hover {
+    background-color: $color-cloud;
+    cursor: pointer;
+  }
+}

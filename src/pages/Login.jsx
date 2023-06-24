@@ -1,4 +1,5 @@
 import LoginForm from "../components/LoginForm/LoginForm";
+import PageHeader from "../components/PageHeader/PageHeader";
 import { getToken } from "../utils/api";
 
 
@@ -16,6 +17,9 @@ export default function Login(){
     };
 
     return (
-        <LoginForm onSubmit={loginSubmit} />
+        <>
+            <PageHeader title="Sign in" />
+            <LoginForm onSubmit={loginSubmit} />
+        </>
     );
 }8
