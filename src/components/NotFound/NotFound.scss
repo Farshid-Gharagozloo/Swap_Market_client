@@ -1,0 +1,23 @@
+@import '../../styles/all';
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 1vmin;
+
+  &__error {
+    text-align: center;
+    font-size: 5em;
+    width: 100%;
+  }
+
+  &__text {
+    color: $color-instock-indigo;
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+  }
+}

@@ -13,7 +13,7 @@ const userToken = { headers: {
 
 const uploadImg ={headers: {
   "Content-Type": "multipart/form-data",
-  // Authorization: `Bearer ${sessionStorage.authToken}`,
+  Authorization: `Bearer ${sessionStorage.authToken}`,
 },};
 
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
@@ -25,3 +25,5 @@ export const addNewProduct = (newItem) => axios.post('/product/add', newItem, up
 export const getUser = (id) => axios.get(`/profile/${id}`,userToken);
 
 export const getUserItemList = (id) => axios.get(`/list/user/${id}`,userToken);
+
+export const getCategoryList = () => axios.get('/product/categorylist');

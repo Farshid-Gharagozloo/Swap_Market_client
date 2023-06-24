@@ -8,6 +8,7 @@ export default function Login(){
         try {
             const loginUser = await getToken(user);
             sessionStorage.authToken = loginUser.data.token;
+            // sessionStorage.authToken= "";
             console.log(loginUser.data.token);
         } catch (error) {
             console.log(error);
@@ -17,4 +18,4 @@ export default function Login(){
     return (
         <LoginForm onSubmit={loginSubmit} />
     );
-}
+}8

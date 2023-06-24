@@ -1,0 +1,45 @@
+@import '../../styles/all';
+
+.page-header {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: $page-gutter;
+  justify-content: space-between;
+  padding: rem(32px) rem(24px) rem(24px) rem(24px);
+
+  &--nowrap {
+    flex-flow: row wrap;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: rem(8px);
+  }
+
+  &__right {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: $page-gutter;
+  }
+
+  &__title {
+    @include text-page-header;
+  }
+
+  @include tablet {
+    padding: rem(32px) rem(32px) rem(24px) rem(32px);
+    flex-direction: row;
+
+    &__right {
+      flex-flow: row nowrap;
+    }
+  }
+
+  @include desktop {
+    padding: rem(32px) rem(40px) rem(24px) rem(40px);
+  }
+}

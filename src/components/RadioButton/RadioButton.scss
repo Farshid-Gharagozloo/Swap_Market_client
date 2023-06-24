@@ -1,0 +1,17 @@
+@import '../../styles/all';
+
+.radio-button {
+    @include text-body-medium;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    width: 70%;
+
+    input[type="radio"] {
+        margin-right: 0.5rem;
+        align-items: center;
+        border: 1px solid $color-cloud;
+        width: 1rem;
+        height: 1rem;
+    }
+}
