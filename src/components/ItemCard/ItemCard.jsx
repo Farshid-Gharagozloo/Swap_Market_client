@@ -1,15 +1,27 @@
 
+import { Link } from "react-router-dom";
+import "./ItemCard.scss";
+
+
 export default function ItemCard({item}){
+    const date = item.time.split("T");
+    const path = `/product/${item.id}`
 
     return (
-        <section className="item-card">
-            <p className="item-card__user">{item.user_name}</p>
+        <Link to={path} className="item-card">
             <h6 className="item-card__name">{item.name}</h6>
-            <img style={{width:200}} src={item.image_url} alt='item_image'/>
+            <img className="item-card__image" src={item.image_url} alt='item_image'/>
             <p className="item-card__price">{item.price}$</p>
-            <p className="item-card__category">{item.category}</p>
-            <p className="item-card__address">{item.address}</p>
-            <p className="item-card__time">{item.time}</p>
-        </section>
+            <p className="item-card__info">
+                <span className="item-card__title">User Name: </span>   
+                {item.user_name}</p>
+            <p className="item-card__info">
+                <span className="item-card__title">Category: </span>
+                 {item.category}</p>
+            <p className="item-card__info">
+                <span className="item-card__title">Address: </span>
+                {item.address}</p>
+            <p className="item-card__info">{date[0]}</p>
+        </Link>
     );
 }

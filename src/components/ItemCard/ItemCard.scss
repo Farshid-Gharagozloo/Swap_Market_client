@@ -1,0 +1,44 @@
+@import '../../styles/all';
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    padding: 1rem;
+    text-decoration: none;
+    max-width: 18rem;
+    border-radius: 2rem;
+
+    &__name {
+        font-size: 1.5rem;
+        color: $color-green;
+        margin-bottom: 0.75rem;
+    }
+
+    &__image{
+        width: 13rem;
+        height: 14rem;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    &__price {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: $color-green;
+        text-align: center;
+    }
+
+    &__info{
+        font-size: 1.1rem;
+        text-align: center;
+        margin: 0.15rem 0;
+        color: $color-graphite;
+    }
+
+    &__title {
+        color: $color-light-sea;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+}

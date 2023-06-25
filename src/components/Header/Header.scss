@@ -14,9 +14,18 @@
 
     @include tablet {
         padding: 0 2rem;
-        height: 11.625rem;
+        height: 15rem;
         font-size: 0.75rem;
         line-height: 1.125rem;
+
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    @include desktop {
+        width: 77.75rem;
+        margin: 0 auto;
     }
 
     &__logo-img{
@@ -37,5 +46,22 @@
         font-size: 1.5rem;
         text-decoration: none;
         list-style-type:none;
+        cursor: pointer;
+
+        @include tablet {
+            padding-top: 3rem;
+        }
     }
+
+    &__page:hover{
+        color: $color-green;
+    }
+
+    &__page--active{
+        color: $color-red;
+    }
+
+
+
+
 }

@@ -26,6 +26,7 @@ body {
     @include push-sides(rem(16px));
     @include instock-box-shadow;
 
+    border-radius: 1.5rem;
     background-color: $color-white;
     display: flex;
     flex-direction: column;

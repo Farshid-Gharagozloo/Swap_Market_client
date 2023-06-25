@@ -1,6 +1,6 @@
 import ItemCard from "../ItemCard/ItemCard";
 
-
+import './ProductList.scss';
 
 export default function ProductList ({mainList}){
 

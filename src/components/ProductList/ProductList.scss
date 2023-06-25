@@ -1,0 +1,12 @@
+@import '../../styles/all';
+
+.list-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

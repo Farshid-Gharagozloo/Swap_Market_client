@@ -1,0 +1,77 @@
+@import '../../styles/all';
+
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    &__image{
+        width: 100%;
+        height: auto;
+    }
+
+    &__info{
+        margin: 1rem 0;
+    }
+
+    &__price{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $color-red;
+    }
+
+    &__title{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $color-light-sea;
+    }
+
+    &__item, &__user-info{
+        font-size: 1.1rem;
+        margin: 0.25rem 0;
+    }
+
+    &__user-title{
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: $color-green;
+    }
+
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2vw;
+
+        &__image{
+            width: 42vw;
+            height: auto;
+        }
+
+        &__info{
+            margin: 0;
+            width: 42vw;
+        }
+
+        &__contact {
+            margin-left: 45vw;
+        }
+    }
+
+    @include desktop {
+
+        gap: 2rem;
+        &__image {
+            width: 28rem;
+        }
+
+        &__info {
+            width: 25rem;
+        }
+
+        &__contact{
+            margin-left: 30.5rem;
+        }
+    }
+}
