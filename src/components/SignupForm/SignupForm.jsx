@@ -69,6 +69,7 @@ export default function SignupForm ({onSubmit}){
                     />
 
                     <Input
+                        type='password'
                         placeholder="Password"
                         name="password"
                         hasError={userError.password}

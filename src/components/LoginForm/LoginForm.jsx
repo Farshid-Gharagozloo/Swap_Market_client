@@ -41,6 +41,7 @@ export default function LoginForm ({onSubmit}){
                 />
 
                 <Input
+                    type='password'
                     placeholder="Password"
                     name="password"
                     hasError={loginError.password}
