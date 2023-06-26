@@ -38,6 +38,7 @@ export default function SignupForm ({onSubmit}){
         if (!formValidate(errors)){
             return;
         }
+        console.log(userInfo);
 
         onSubmit(userInfo);
     };

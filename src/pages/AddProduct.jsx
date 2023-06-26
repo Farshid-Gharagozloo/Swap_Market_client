@@ -9,12 +9,16 @@ export default function AddProduct (){
     const navigate = useNavigate();
 
     const [categoryList, setCategoryList] = useState(undefined);
-
     const { id } = useParams();
+
+    const uploadImg ={headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${sessionStorage.authToken}`,
+    },};
 
     const addItemSubmit = async (newItemData) => {
         try {
-            const newItem = await addNewProduct(newItemData);
+            const newItem = await addNewProduct(newItemData, uploadImg);
             // console.log(newItem);
             navigate('/')
         } catch (error) {

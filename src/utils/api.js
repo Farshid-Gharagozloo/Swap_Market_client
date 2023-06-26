@@ -11,20 +11,16 @@ const userToken = { headers: {
   Authorization: `Bearer ${sessionStorage.authToken}`,
 }, };
 
-const uploadImg ={headers: {
-  "Content-Type": "multipart/form-data",
-  Authorization: `Bearer ${sessionStorage.authToken}`,
-},};
-
-// if (!userToken ){
-//   return (<h1>loading user...</h1>);
-// }
+// const uploadImg ={headers: {
+//   "Content-Type": "multipart/form-data",
+//   Authorization: `Bearer ${sessionStorage.authToken}`,
+// },};
 
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
 
 export const getToken = (userPass) => axios.post('/profile/login', userPass);
 
-export const addNewProduct = (newItem) => axios.post('/product/add', newItem, uploadImg);
+export const addNewProduct = (newItem, uploadImg) => axios.post('/product/add', newItem, uploadImg);
 
 export const getUser = (id, userloginToken) => axios.get(`/profile/${id}`,userloginToken);
 
@@ -32,10 +28,10 @@ export const getUserItemList = (id, userloginToken) => axios.get(`/list/user/${i
 
 export const getCategoryList = () => axios.get('/product/categorylist');
 
-export const editProductItem = (id, editItem) => axios.put(`/product/${id}`,editItem, uploadImg);
+export const editProductItem = (id, editItem, uploadImg) => axios.put(`/product/${id}`,editItem, uploadImg);
 
 export const getProductItem = (id) => axios.get(`/product/${id}`);
 
-export const editUserProfile = (id, userInfo) => axios.put(`/profile/${id}`, userInfo, userToken);
+export const editUserProfile = (id, userInfo, userloginToken) => axios.put(`/profile/${id}`, userInfo, userloginToken);
 
 export const getProductList = () => axios.get('/list');

@@ -6,8 +6,15 @@
     margin:0 auto;
     padding: 1rem;
     
-    max-width: 18rem;
+    width: 13rem;
     border-radius: 2rem;
+
+    box-shadow: rgba(49, 167, 177, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+    &:hover{
+        box-shadow: rgba(212, 70, 82, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+    }
 
     &__divided{
         display: flex;
@@ -20,14 +27,14 @@
     }
 
     &__name {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         color: $color-green;
         margin-bottom: 0.75rem;
     }
 
     &__image{
-        width: 13rem;
-        height: 14rem;
+        width: 10rem;
+        height: 12rem;
         border-radius: 10px;
         margin: 0 auto;
     }

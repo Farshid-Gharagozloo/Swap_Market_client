@@ -37,7 +37,7 @@ export default function EditProfileForm ({ onSubmit, editUser, user_id}){
         if (!formValidate(errors)){
             return;
         }
-
+        
         onSubmit(userInfo);
     };
 

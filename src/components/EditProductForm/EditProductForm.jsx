@@ -156,9 +156,7 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
                         ))}
 
                     <p className="edit-product__radio">Please upload your image:</p>                    
-                    <input type="file" name="image" accept="image/*" className="edit-product__upload"/>
-
-                    {/* <input type="file" name="image" accept="image/*" /> */}
+                    <input required type="file" name="image" accept="image/*" className="edit-product__upload"/>
                 </div>
                 <div className="edit-product__actions">
                     <Button variant='cancel' onClick={() => navigate(-1)} />
