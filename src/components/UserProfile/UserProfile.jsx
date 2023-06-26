@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import './UserProfile.scss';
 import swapIcon from '../../assets/logo/swap_logo.jpg';
 
-export default function UserProfile ({profileInfo}){
+export default function UserProfile ({profileInfo, userloginToken}){
     const {first_name, last_name, address, postal_code, email, contact_number} = profileInfo;
 
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ export default function UserProfile ({profileInfo}){
     const {id} = useParams();
 
     useEffect(() => {
-        getUserItemList(id)
+        getUserItemList(id, userloginToken)
             .then((response) => {
                 setItemList(response.data);
             })
@@ -65,7 +65,7 @@ export default function UserProfile ({profileInfo}){
                     })
                 }
             </div>
-            <Link to={'/additem'} className="user-profile__add-item">
+            <Link to={`/additem/${id}`} className="user-profile__add-item">
                 <p className="user-profile__name">Add your new product here</p>
                 <img className="user-profile__image" src={swapIcon} alt='add_image'/>
             </Link>

@@ -46,7 +46,6 @@ export default function EditProduct (){
         );
     }
 
-
     return (
         <>
             <PageHeader title="Edit Your Item" />

@@ -6,13 +6,13 @@ import { formValidate, addItemRules } from '../../utils/validators';
 import './AddProductForm.scss'
 import { useNavigate } from "react-router-dom";
 
-export default function AddProductForm({ onSubmit, categoryList }) {
+export default function AddProductForm({ onSubmit, categoryList, user_id }) {
 
 
     const navigate = useNavigate();
     const [newItem, setNewItem] = useState({
         name: "",
-        user_id: 2,
+        user_id: user_id,
         category: "",
         description: "",
         price: "",
@@ -46,7 +46,7 @@ export default function AddProductForm({ onSubmit, categoryList }) {
 
         let fd = new FormData();
         fd.append("name", e.target.name.value);
-        fd.append("user_id", 2);
+        fd.append("user_id", newItem.user_id);
         fd.append("category", newItem.category);
         fd.append("description", e.target.description.value);
         fd.append("price", e.target.price.value);

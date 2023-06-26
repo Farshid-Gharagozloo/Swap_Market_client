@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/swap_logo.jpg";
 
 import './Header.scss';
@@ -6,9 +6,10 @@ import './Header.scss';
 
 export default function Header() {
 
+    const navigate = useNavigate();
     const handlesignout = () =>{
-        sessionStorage.removeItem('token');
-        // sessionStorage.authToken = undefined;
+        sessionStorage.removeItem('authToken');
+        navigate("/")
         window.location.reload(false);
     }
 
@@ -45,7 +46,7 @@ export default function Header() {
                                Sign in
                             </NavLink> )
                          : (
-                            <NavLink className={navLinkActive} onClick={() => (sessionStorage.removeItem('token'))}>
+                            <NavLink className={navLinkActive} onClick={handlesignout}>
                                Sign out
                             </NavLink> )
                         }

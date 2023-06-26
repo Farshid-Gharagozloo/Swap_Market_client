@@ -12,7 +12,8 @@ export default function Login(){
             const loginUser = await getToken(user);
             sessionStorage.authToken = loginUser.data.token;
             // window.location.reload(false);
-            navigate(`/user/${loginUser.data.user_id}`);
+            const id = loginUser.data.user_id;
+            navigate(`/user/${id}`);
         } catch (error) {
             console.log(error);
         }

@@ -13,12 +13,12 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
     const [selectedItem, setSelectedItem] = useState({
         name: editItem.name,
         id: itemId,
-        user_id: 2,
+        user_id: editItem.user_id,
         category: editItem.category,
         description: editItem.description,
         price: editItem.price,
         interchangeable: 'no',
-        image: "",
+        image_url: editItem.image_url,
         exchange: 0,
         exchangeable_items: editItem.exchangeable_items
     });
@@ -45,7 +45,21 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
             return;
         }
 
-        onSubmit(selectedItem);
+        let fd = new FormData();
+        fd.append("name", e.target.name.value);
+        fd.append("id", itemId);
+        fd.append("user_id", selectedItem.user_id);
+        fd.append("category", selectedItem.category);
+        fd.append("description", e.target.description.value);
+        fd.append("price", e.target.price.value);
+        fd.append("interchangeable", selectedItem.interchangeable);
+        fd.append("exchangeable_items", JSON.stringify(selectedItem.exchangeable_items));
+        fd.append("image", e.target.image.files[0]);
+
+        // console.log(fd);
+        onSubmit(fd);
+
+        // onSubmit(selectedItem);
     };
 
     const handleExchangeableItemChange = (index, value) => {
@@ -140,6 +154,9 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
                                 onChange={(e) => handleExchangeableItemChange(index, e.target.value)}
                             />
                         ))}
+
+                    <p className="edit-product__radio">Please upload your image:</p>                    
+                    <input type="file" name="image" accept="image/*" className="edit-product__upload"/>
 
                     {/* <input type="file" name="image" accept="image/*" /> */}
                 </div>

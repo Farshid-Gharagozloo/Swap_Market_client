@@ -6,6 +6,10 @@ import EditProfileForm from "../components/EditProfileForm/EditProfileForm";
 
 export default function EditProfile (){
 
+    const userloginToken = { headers: {
+        Authorization: `Bearer ${sessionStorage.authToken}`,
+    }, };
+
     const [editUser, setEditUser] = useState(undefined);
 
     const { id } = useParams();
@@ -19,7 +23,7 @@ export default function EditProfile (){
     };
 
     useEffect(() => {
-        getUser(id)
+        getUser(id, userloginToken)
             .then((response) =>{
                 setEditUser(response.data);
             })
