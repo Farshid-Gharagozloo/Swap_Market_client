@@ -25,7 +25,7 @@ function App() {
           <Route path='/signin' element={<Login/>} />
           <Route path='/user/:id' element={<ProfilePage/>} />
           <Route path='/additem' element={<AddProduct/>} />
-          <Route path='/user/product/:id' element={<EditProduct/>} />
+          <Route path='/product/edit/:id' element={<EditProduct/>} />
           <Route path='/user/edit/:id' element={<EditProfile/>} />
         </Routes>
       </div>
@@ -34,4 +34,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

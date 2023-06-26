@@ -2,8 +2,11 @@ import { useState } from "react";
 import Input from "../Input/Input";
 import Button from '../Button/Button';
 import { formValidate, loginFromRules } from '../../utils/validators';
+import "./LoginForm.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm ({onSubmit}){
+    const navigate = useNavigate();
     const [user, setUser] = useState ({
         user_name: "",
         password: ""
@@ -17,7 +20,6 @@ export default function LoginForm ({onSubmit}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const errors = loginFromRules(user);
         setLoginError(errors);
 
@@ -46,7 +48,7 @@ export default function LoginForm ({onSubmit}){
                 />
             </div>
             <div className="login-form__actions">
-                <Button variant='cancel' />
+                <Button variant='cancel' onClick={() => navigate('/')} />
                 <Button type='submit'>Log in</Button>
             </div>
         </form>

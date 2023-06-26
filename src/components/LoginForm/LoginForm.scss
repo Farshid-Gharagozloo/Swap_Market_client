@@ -1,0 +1,40 @@
+@import '../../styles/all';
+
+
+.login-form{
+
+    &__inputs {
+        padding: 1rem;
+    }
+
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: $page-gutter;
+        padding: rem(16px);
+    }
+
+    @include tablet {
+
+        &__inputs {
+            margin: 5rem auto;
+            border-radius: 3rem;
+            border-left: 2px solid $color-red;
+            border-right: 2px solid $color-red;
+            width: 25rem;
+        }
+
+        &__actions {
+            @include soft-sides(rem(32px));
+        }
+    }
+
+    @include desktop {
+        &__actions {
+            @include soft-sides(rem(40px));
+        }
+    }    
+
+}

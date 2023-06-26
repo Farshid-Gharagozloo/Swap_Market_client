@@ -16,7 +16,9 @@
   min-width: fit-content;
 
   &:hover {
-    background-color: $color-graphite;
+    background-color: $color-green;
+    border-color: $color-green;
+    cursor: pointer;
   }
 
   &--delete {
@@ -31,8 +33,9 @@
 
     &:hover {
       background-color: $color-white;
-      border-color: $color-instock-indigo;
-      color: $color-instock-indigo;
+      border-color: $color-green;
+      color: $color-green;
+      cursor: pointer;      
     }
   }
 

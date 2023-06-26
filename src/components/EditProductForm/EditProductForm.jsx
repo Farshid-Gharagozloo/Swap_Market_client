@@ -3,10 +3,13 @@ import Button from '../Button/Button';
 import RadioButton from '../RadioButton/RadioButton';
 import { useState } from 'react';
 import { formValidate, addItemRules } from '../../utils/validators';
+import './EditProductForm.scss';
+import { useNavigate } from "react-router-dom";
 
 
 export default function EditProductForm ({ onSubmit, categoryList, editItem, itemId }){
 
+    const navigate = useNavigate();
     const [selectedItem, setSelectedItem] = useState({
         name: editItem.name,
         id: itemId,
@@ -53,8 +56,8 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
 
     return (
         <>
-            <form className="add-product" onSubmit={handleSubmit}>
-                <div className="add-product__inputs">
+            <form className="edit-product" onSubmit={handleSubmit}>
+                <div className="edit-product__inputs">
                     <Input
                         placeholder="Product Name"
                         name="name"
@@ -96,6 +99,11 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
                         onChange={(e) => setSelectedItem({ ...selectedItem, price: Number(e.target.value) })}
                     />
 
+                </div>
+
+                <div className="edit-product__inputs-right">
+
+                    <p className="edit-product__radio">Open to Swap:</p>
                     <RadioButton
                         name="interchangeable"
                         options={[
@@ -135,8 +143,8 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
 
                     {/* <input type="file" name="image" accept="image/*" /> */}
                 </div>
-                <div className="add-product__actions">
-                    <Button variant='cancel' />
+                <div className="edit-product__actions">
+                    <Button variant='cancel' onClick={() => navigate(-1)} />
                     <Button type='submit'>Edit Product</Button>
                 </div>
             </form>

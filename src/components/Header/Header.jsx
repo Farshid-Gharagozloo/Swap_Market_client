@@ -6,6 +6,12 @@ import './Header.scss';
 
 export default function Header() {
 
+    const handlesignout = () =>{
+        sessionStorage.removeItem('token');
+        // sessionStorage.authToken = undefined;
+        window.location.reload(false);
+    }
+
     const navLinkActive = ({ isActive }) => {
         if (isActive) {
           return 'header__page header__page--active';
@@ -34,9 +40,15 @@ export default function Header() {
                         </NavLink>
                     </li>
                     <li className="header__page">
-                        <NavLink className={navLinkActive} to="/signin">
-                           Sign in
-                        </NavLink>
+                        {!sessionStorage.authToken ? (
+                            <NavLink className={navLinkActive} to="/signin">
+                               Sign in
+                            </NavLink> )
+                         : (
+                            <NavLink className={navLinkActive} onClick={() => (sessionStorage.removeItem('token'))}>
+                               Sign out
+                            </NavLink> )
+                        }
                     </li>
                     <li className="header__page">About</li>
                 </ul>
@@ -44,3 +56,4 @@ export default function Header() {
         </section>
     );
 };
+

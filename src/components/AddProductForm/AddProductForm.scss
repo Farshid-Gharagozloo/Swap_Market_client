@@ -1,0 +1,69 @@
+@import '../../styles/all';
+
+.add-product{
+    padding: 0 1rem;
+
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: $page-gutter;
+        padding: rem(16px) rem(0);
+    }
+
+
+    &__radio {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__upload {
+        color: $color-light-sea;
+    }
+
+    &__upload::file-selector-button{
+        background-color: $color-light-sea;
+        color: $color-white;
+        border-radius: 4px;
+        border: none;
+        padding: 0.5rem;
+
+        &:hover{
+            background-color: $color-green;
+        }
+    }
+
+
+    @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        &__inputs-right, &__inputs-left{
+            width: 40vw;
+            padding: 1rem;
+        }
+
+        &__inputs-right{
+            border-radius: 3rem;
+            border-left: 2px solid $color-red;
+        }
+
+        &__actions {
+            @include soft-sides(rem(32px));
+        }
+    }
+
+    @include desktop {
+
+        &__inputs-right, &__inputs-left{
+            max-width: 28rem;
+            padding: 1rem 2rem;
+        }
+
+        &__actions {
+            @include soft-sides(rem(40px));
+        }
+    }
+}

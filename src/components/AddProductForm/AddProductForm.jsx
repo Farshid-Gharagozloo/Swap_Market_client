@@ -3,9 +3,13 @@ import Button from '../Button/Button';
 import RadioButton from '../RadioButton/RadioButton';
 import { useState } from 'react';
 import { formValidate, addItemRules } from '../../utils/validators';
+import './AddProductForm.scss'
+import { useNavigate } from "react-router-dom";
 
 export default function AddProductForm({ onSubmit, categoryList }) {
 
+
+    const navigate = useNavigate();
     const [newItem, setNewItem] = useState({
         name: "",
         user_id: 2,
@@ -27,7 +31,7 @@ export default function AddProductForm({ onSubmit, categoryList }) {
         exchangeable_items: false
     });
 
-    console.log(newItem.exchangeable_items);
+    // console.log(newItem.exchangeable_items);
     const exItems = ["1", "2", "3", "4", "5"];
 
     const handleSubmit = (e) => {
@@ -50,7 +54,7 @@ export default function AddProductForm({ onSubmit, categoryList }) {
         fd.append("exchangeable_items", JSON.stringify(newItem.exchangeable_items));
         fd.append("image", e.target.image.files[0]);
 
-        console.log(fd);
+        // console.log(fd);
         onSubmit(fd);
     };
 
@@ -63,7 +67,7 @@ export default function AddProductForm({ onSubmit, categoryList }) {
     return (
         <>
             <form className="add-product" onSubmit={handleSubmit}>
-                <div className="add-product__inputs">
+                <div className="add-product__inputs-left">
                     <Input
                         placeholder="Product Name"
                         name="name"
@@ -101,7 +105,12 @@ export default function AddProductForm({ onSubmit, categoryList }) {
                         onChange={(e) => setNewItem({ ...newItem, price: Number(e.target.value) })}
                     />
 
+                </div>
+
+                <div className="add-product__inputs-right">
+                    <p className="add-product__radio">Open to Swap:</p>
                     <RadioButton
+                        label="fffff"
                         name="interchangeable"
                         options={[
                             { label: 'Yes', value: 'yes' },
@@ -138,10 +147,11 @@ export default function AddProductForm({ onSubmit, categoryList }) {
                             />
                         ))}
 
-                    <input type="file" name="image" accept="image/*" />
+                    <p className="add-product__radio">Please upload your image:</p>                    
+                    <input required type="file" name="image" accept="image/*" className="add-product__upload"/>
                 </div>
                 <div className="add-product__actions">
-                    <Button variant='cancel' />
+                    <Button variant='cancel' onClick={() => navigate(-1)} />
                     <Button type='submit'>Add Product</Button>
                 </div>
             </form>

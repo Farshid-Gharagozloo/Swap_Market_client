@@ -34,10 +34,12 @@ export default function EditProfile (){
         );
     }
 
+    const titleName = "Edit " + editUser.user_name;
+
     return (
         <>
-            <PageHeader title="Sign up" />
-            <EditProfileForm onSubmit={handleSubmit} editUser={editUser}/>
+            <PageHeader title={titleName} />
+            <EditProfileForm onSubmit={handleSubmit} editUser={editUser} user_id={id}/>
         </>
     );
 }

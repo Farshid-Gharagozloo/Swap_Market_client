@@ -3,9 +3,11 @@ import Button from '../Button/Button';
 import './EditProfileForm.scss';
 import { useState } from 'react';
 import { editProfileFromRules, formValidate } from '../../utils/validators';
+import { useNavigate } from 'react-router-dom';
 
-export default function EditProfileForm ({ onSubmit, editUser}){
-    // const navigate = useNavigate();
+export default function EditProfileForm ({ onSubmit, editUser, user_id}){
+    
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState({
         user_name: editUser.user_name,
         first_name: editUser.first_name,
@@ -40,10 +42,10 @@ export default function EditProfileForm ({ onSubmit, editUser}){
     };
 
     return (
-        <form className='signup-form' onSubmit={handleSubmit}>
-            <div className="signup-form__wrapper">
-                <div className="signup-form__personal-info">
-                    <h3 className="signup-form__title">Personal Information</h3>
+        <form className='profile-form' onSubmit={handleSubmit}>
+            <div className="profile-form__wrapper">
+                <div className="profile-form__personal-info">
+                    <h3 className="profile-form__title">Personal Information</h3>
                     <Input
                         placeholder="User Name"
                         name="user_name"
@@ -69,8 +71,8 @@ export default function EditProfileForm ({ onSubmit, editUser}){
                     />
                 </div>
 
-                <div className="signup-form__address-info">
-                    <h3 className="signup-form__title">Contact Details</h3>
+                <div className="profile-form__address-info">
+                    <h3 className="profile-form__title">Contact Details</h3>
                     <Input
                         placeholder="Address"
                         name="address"
@@ -103,8 +105,8 @@ export default function EditProfileForm ({ onSubmit, editUser}){
                         onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
                     />
                 </div>
-                <div className="signup-form__actions">
-                    <Button variant='cancel' />
+                <div className="profile-form__actions">
+                    <Button variant='cancel' onClick={() => navigate(`/user/${user_id}`)} />
                     <Button type='submit'>Send</Button>
                 </div>
             </div>

@@ -1,12 +1,12 @@
 import Input from '../Input/Input';
 import Button from '../Button/Button';
 import './SignupForm.scss';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { formValidate, signupFromRules } from '../../utils/validators';
 
 export default function SignupForm ({onSubmit}){
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState({
         user_name: "",
         first_name: "",
@@ -107,8 +107,8 @@ export default function SignupForm ({onSubmit}){
                     />
                 </div>
                 <div className="signup-form__actions">
-                    <Button variant='cancel' />
-                    <Button type='submit'>Send</Button>
+                    <Button variant='cancel' onClick={() => navigate('/')} />
+                    <Button type='submit'>Sign up</Button>
                 </div>
             </div>
         </form>

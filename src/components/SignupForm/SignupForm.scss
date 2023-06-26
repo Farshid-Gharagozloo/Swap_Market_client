@@ -8,9 +8,49 @@
 
     &__title{
         padding: 1rem 0;
+        color: $color-light-sea;
     }
 
     &__address-info {
-        border-top: 2px solid red;
+        border-top: 2px solid $color-red;
+    }
+
+    &__actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: $page-gutter;
+        padding: rem(16px) rem(0);
+    }
+
+    @include tablet {
+        &__wrapper {
+            display: flex;
+            flex-direction: row;
+            column-gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        &__personal-info, &__address-info {
+            padding-left: 1rem;
+            width: 40vw;
+            border-top: none;
+            border-radius: 3rem;
+            border-left: 2px solid $color-red;
+        }
+
+        &__actions {
+            @include soft-sides(rem(32px));
+        }
+    }
+
+    @include desktop {
+        &__actions {
+            @include soft-sides(rem(40px));
+        }
+
+        &__personal-info, &__address-info {
+            max-width: 28rem;
+        }
     }
 }
