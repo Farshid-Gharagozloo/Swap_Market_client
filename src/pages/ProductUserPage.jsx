@@ -1,12 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import PageHeader from "../components/PageHeader/PageHeader";
 import { useEffect, useState } from "react";
-import { getProductItem } from "../utils/api";
-import ProductDetails from "../components/ProductDetails/ProductDetails";
+import { deleteProduct, getProductItem } from "../utils/api";
+import PageHeader from "../components/PageHeader/PageHeader";
+import ProductUser from "../components/ProductUser/ProductUser";
 
 
-export default function ProductPage (){
-
+export default function ProductUserPage (){
     const navigate = useNavigate();
 
     const [productInfo, setProductInfo] = useState(undefined);
@@ -22,17 +21,22 @@ export default function ProductPage (){
             });
     }, [id]);
 
+    const handleDelete = (id) => {
+        deleteProduct(id)
+            .then(() => window.location.reload())
+            .catch((error) => console.log(error));
+    }
+
     if (!productInfo){
         return (
             <h4>Loading ...</h4>
         );
     }
 
-
     return (
         <>
             <PageHeader title={productInfo.name} onReturn={() => navigate(-1)}/>
-            <ProductDetails productInfo={productInfo} /> 
+            <ProductUser productInfo={productInfo} onDelete={handleDelete} id={id} />
         </>
     );
 }

@@ -71,7 +71,7 @@ export default function EditProductForm ({ onSubmit, categoryList, editItem, ite
     return (
         <>
             <form className="edit-product" onSubmit={handleSubmit}>
-                <div className="edit-product__inputs">
+                <div className="edit-product__inputs-left">
                     <Input
                         placeholder="Product Name"
                         name="name"

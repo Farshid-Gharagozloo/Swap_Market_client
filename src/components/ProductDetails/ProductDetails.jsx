@@ -24,8 +24,6 @@ export default function ProductDetails ({productInfo}){
                     <span className="product-details__title">Open to swap with : </span>
                     {exchange}
                 </p>
-            </div>
-            <div className="product-details__contact">
                 <p className="product-details__user-info">
                     <span className="product-details__user-title">Owner : </span>
                     {productInfo.user_name}

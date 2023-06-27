@@ -1,10 +1,17 @@
 @import '../../styles/all';
 
 
-.product-details {
+.product-user {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+
+    &__actions{
+        margin: 1rem;
+        margin-top: 2.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
 
     &__image{
         width: 100%;
@@ -27,17 +34,10 @@
         color: $color-light-sea;
     }
 
-    &__item, &__user-info{
+    &__item{
         font-size: 1.1rem;
-        margin: 0.5rem 0;
+        margin: 0.25rem 0;
     }
-
-    &__user-title{
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: $color-green;
-    }
-
 
     @include tablet {
         flex-direction: row;
@@ -53,7 +53,6 @@
             margin: 0;
             width: 42vw;
         }
-
     }
 
     @include desktop {
@@ -66,6 +65,5 @@
         &__info {
             width: 25rem;
         }
-
     }
 }

@@ -5,7 +5,7 @@
     flex-direction: column;
     margin:0 auto;
     padding: 1rem;
-    
+    text-decoration: none;
     width: 13rem;
     border-radius: 2rem;
 
@@ -14,16 +14,6 @@
     &:hover{
         box-shadow: rgba(212, 70, 82, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
-    }
-
-    &__divided{
-        display: flex;
-        justify-content: space-between;
-        padding-right: 1rem;
-    }
-
-    &__link{
-        text-decoration: none;
     }
 
     &__name {
