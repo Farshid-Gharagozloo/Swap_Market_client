@@ -49,7 +49,7 @@ export default function ProductUser ({productInfo, onDelete, id}){
             </div>
             {showModal && (
                 <Modal
-                title={`Delete ${productInfo.name} inventory item?`}
+                title={`Delete ${productInfo.name} item?`}
                 onDelete={() => onDelete(id)}
                 onClose={() => setShowModal(false)}
                 >

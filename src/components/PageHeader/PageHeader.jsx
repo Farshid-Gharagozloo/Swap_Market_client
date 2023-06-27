@@ -1,5 +1,5 @@
 import ActionButton from '../ActionButton/ActionButton';
-import returnIcon from '../../assets/icons/arrow_back-24px.svg';
+import returnIcon from '../../assets/icons/back-arrow-svgrepo-com.svg';
 import './PageHeader.scss';
 
 export default function PageHeader({ title, onReturn, children, nowrap }) {

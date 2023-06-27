@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    margin: 1rem;
 
     &__image{
         width: 100%;
@@ -45,13 +46,13 @@
         gap: 2vw;
 
         &__image{
-            width: 42vw;
+            width: 40vw;
             height: auto;
         }
 
         &__info{
             margin: 0;
-            width: 42vw;
+            width: 40vw;
         }
 
     }

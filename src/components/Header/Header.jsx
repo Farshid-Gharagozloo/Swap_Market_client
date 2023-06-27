@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/swap_logo.jpg";
-
+import userlogo from "../../assets/icons/user-circle-svgrepo-com.svg"
 import './Header.scss';
 
 
@@ -35,10 +35,13 @@ export default function Header() {
                             Home Page
                         </NavLink>
                     </li>
+                    <li className="header__page">About</li>
                     <li className="header__page">
-                        <NavLink className={navLinkActive} to="/signup">
-                            Sign up
-                        </NavLink>
+                        {!sessionStorage.authToken ? (
+                            <NavLink className={navLinkActive} to="/signup">
+                                Sign up
+                            </NavLink> )
+                        : null }
                     </li>
                     <li className="header__page">
                         {!sessionStorage.authToken ? (
@@ -46,12 +49,19 @@ export default function Header() {
                                Sign in
                             </NavLink> )
                          : (
-                            <NavLink className={navLinkActive} onClick={handlesignout}>
+                            <NavLink className="header__page" onClick={handlesignout}>
                                Sign out
                             </NavLink> )
                         }
                     </li>
-                    <li className="header__page">About</li>
+
+                    <li className="header__page">
+                        {sessionStorage.authToken ? (
+                            <NavLink className={navLinkActive} to={`/user/${sessionStorage.user}`}>
+                                <img src={userlogo} alt="user_logo" className="header__user-logo"/>
+                            </NavLink> 
+                        ): null}
+                    </li>
                 </ul>
             </div>
         </section>

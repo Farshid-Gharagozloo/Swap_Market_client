@@ -23,7 +23,9 @@ export default function ProductUserPage (){
 
     const handleDelete = (id) => {
         deleteProduct(id)
-            .then(() => window.location.reload())
+            .then((response) => {
+                navigate(`/user/${response.data.user_id}`);
+            })
             .catch((error) => console.log(error));
     }
 

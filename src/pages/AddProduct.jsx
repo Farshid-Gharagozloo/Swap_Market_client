@@ -19,8 +19,7 @@ export default function AddProduct (){
     const addItemSubmit = async (newItemData) => {
         try {
             const newItem = await addNewProduct(newItemData, uploadImg);
-            // console.log(newItem);
-            navigate('/')
+            navigate(`/user/product/${newItem.data.item_id}`);
         } catch (error) {
             console.log(error);
         }
