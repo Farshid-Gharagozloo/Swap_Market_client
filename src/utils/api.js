@@ -28,3 +28,8 @@ export const editUserProfile = (id, userInfo, userloginToken) => axios.put(`/pro
 export const getProductList = () => axios.get('/list');
 
 export const deleteProduct = (id) => axios.delete(`/product/${id}`);
+
+
+export const getListByCategory = (category, id) => axios.get(`/list/category/${category}/${id}`);
+
+export const getListByUsername = (username, id) => axios.get(`/list/username/${username}/${id}`);

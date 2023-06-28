@@ -32,7 +32,7 @@ export default function ProductPage (){
     return (
         <>
             <PageHeader title={productInfo.name} onReturn={() => navigate(-1)}/>
-            <ProductDetails productInfo={productInfo} /> 
+            <ProductDetails productInfo={productInfo} id={id} /> 
         </>
     );
 }
