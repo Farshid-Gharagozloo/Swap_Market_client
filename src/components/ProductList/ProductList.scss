@@ -1,14 +1,43 @@
 @import '../../styles/all';
 
-.list-table {
+
+.all-products{
+
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
 
-    @include tablet {
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin: 2rem 1rem;
+    &__swap{
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
     }
+
+    &__filter{
+        margin: 1rem 2.5rem;
+    }
+
+
+    &__list-table {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 2rem 1rem;
+        }
+    }
+
+    @include tablet{
+        flex-direction: row;
+        &__filter{
+            min-width: 6rem;
+            margin: 0;
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            border-right: 2px solid $color-red;
+        }
+    }
+
 }
