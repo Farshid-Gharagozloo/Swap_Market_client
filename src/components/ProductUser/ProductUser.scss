@@ -23,19 +23,19 @@
     }
 
     &__price{
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: bold;
         color: $color-red;
     }
 
     &__title{
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         font-weight: bold;
         color: $color-light-sea;
     }
 
     &__item{
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         margin: 0.25rem 0;
     }
 
@@ -43,6 +43,14 @@
         flex-direction: row;
         flex-wrap: wrap;
         gap: 2vw;
+
+        &__price{
+            font-size: 1.2rem;
+        }
+
+        &__title, &__item{
+            font-size: 1.1rem; 
+        }
 
         &__image{
             width: 42vw;

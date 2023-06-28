@@ -35,7 +35,11 @@ export default function Header() {
                             Home Page
                         </NavLink>
                     </li>
-                    <li className="header__page">About</li>
+                    <li className="header__page">
+                        <NavLink className={navLinkActive} to="/about">
+                            About
+                        </NavLink>
+                    </li>
                     <li className="header__page">
                         {!sessionStorage.authToken ? (
                             <NavLink className={navLinkActive} to="/signup">

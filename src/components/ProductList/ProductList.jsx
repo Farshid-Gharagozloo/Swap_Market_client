@@ -40,6 +40,10 @@ export default function ProductList ({mainList, categoryList}){
 
     }, [exchange, categoryFilter, lowPrice, highPrice, mainList]);
 
+    if (!mainList){
+        return (<h1>loading ...</h1>);
+    }
+
     return (
         <section className="all-products">
             <div className="all-products__filter">
