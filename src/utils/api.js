@@ -7,15 +7,6 @@ axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080
 //   api_key: DEFAULT_API_KEY,
 // };
 
-const userToken = { headers: {
-  Authorization: `Bearer ${sessionStorage.authToken}`,
-}, };
-
-// const uploadImg ={headers: {
-//   "Content-Type": "multipart/form-data",
-//   Authorization: `Bearer ${sessionStorage.authToken}`,
-// },};
-
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
 
 export const getToken = (userPass) => axios.post('/profile/login', userPass);
@@ -35,3 +26,10 @@ export const getProductItem = (id) => axios.get(`/product/${id}`);
 export const editUserProfile = (id, userInfo, userloginToken) => axios.put(`/profile/${id}`, userInfo, userloginToken);
 
 export const getProductList = () => axios.get('/list');
+
+export const deleteProduct = (id) => axios.delete(`/product/${id}`);
+
+
+export const getListByCategory = (category, id) => axios.get(`/list/category/${category}/${id}`);
+
+export const getListByUsername = (username, id) => axios.get(`/list/username/${username}/${id}`);

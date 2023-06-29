@@ -1,0 +1,77 @@
+@import '../../styles/all';
+
+
+.product-user {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    &__actions{
+        margin: 1rem;
+        margin-top: 2.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__image{
+        width: 100%;
+        height: auto;
+    }
+
+    &__info{
+        margin: 1rem 0;
+    }
+
+    &__price{
+        font-size: 1rem;
+        font-weight: bold;
+        color: $color-red;
+    }
+
+    &__title{
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: $color-light-sea;
+    }
+
+    &__item{
+        font-size: 0.85rem;
+        margin: 0.25rem 0;
+    }
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2vw;
+
+        &__price{
+            font-size: 1.2rem;
+        }
+
+        &__title, &__item{
+            font-size: 1.1rem; 
+        }
+
+        &__image{
+            width: 42vw;
+            height: auto;
+        }
+
+        &__info{
+            margin: 0;
+            width: 42vw;
+        }
+    }
+
+    @include desktop {
+
+        gap: 2rem;
+        &__image {
+            width: 28rem;
+        }
+
+        &__info {
+            width: 25rem;
+        }
+    }
+}

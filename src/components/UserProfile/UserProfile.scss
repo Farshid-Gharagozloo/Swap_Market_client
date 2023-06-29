@@ -25,10 +25,13 @@
     }
 
     &__name {
-        font-size: 1.5rem;
+        font-size: 0.9rem;
         color: $color-green;
         margin-bottom: 0.75rem;
         text-align: center;
+        @include tablet {
+            font-size: 1.5rem;
+        }
     }
 
     &__image{
@@ -39,21 +42,31 @@
     }
 
     &__header{
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         color: $color-light-sea;
+        @include tablet {
+            font-size: 1.2rem;
+        }
     }
 
     &__info{
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         padding-left: 0.5rem;
+
+        @include tablet{
+            font-size: 1.2rem;
+        }
     }
 
     &__products{
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        margin: 1rem 0;
 
         @include tablet {
+            margin: 0;
+            padding: 2rem 0;
             flex-direction: row;
             flex-wrap: wrap;
             border-radius: 3rem;
@@ -108,7 +121,7 @@
         &__products {
             width: 25rem;
             flex-direction: column;
-            padding: 0 3rem;
+            padding: 2rem 3rem;
             border-left: 2px solid $color-red;
             border-top: none;
         }

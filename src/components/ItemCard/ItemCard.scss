@@ -5,8 +5,8 @@
     flex-direction: column;
     margin:0 auto;
     padding: 1rem;
-    
-    width: 13rem;
+    text-decoration: none;
+    width: 15rem;
     border-radius: 2rem;
 
     box-shadow: rgba(49, 167, 177, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
@@ -16,18 +16,8 @@
 
     }
 
-    &__divided{
-        display: flex;
-        justify-content: space-between;
-        padding-right: 1rem;
-    }
-
-    &__link{
-        text-decoration: none;
-    }
-
     &__name {
-        font-size: 1.1rem;
+        font-size: 0.8rem;
         color: $color-green;
         margin-bottom: 0.75rem;
     }
@@ -40,14 +30,15 @@
     }
 
     &__price {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: bold;
         color: $color-green;
         text-align: center;
+        margin-top: 0.5rem;
     }
 
     &__info{
-        font-size: 1.1rem;
+        font-size: 0.8rem;
         text-align: center;
         margin: 0.15rem 0;
         color: $color-graphite;
@@ -56,6 +47,21 @@
     &__title {
         color: $color-light-sea;
         font-weight: bold;
-        font-size: 1.1rem;
+        font-size: 0.8rem;
+    }
+
+    @include tablet {
+        &__name {
+            font-size: 1rem;
+        }
+
+        &__title,  &__info{
+            font-size: 1rem;
+        }
+
+        &__price {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
     }
 }

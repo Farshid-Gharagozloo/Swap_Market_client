@@ -37,7 +37,7 @@ export default function EditProfileForm ({ onSubmit, editUser, user_id}){
         if (!formValidate(errors)){
             return;
         }
-        
+
         onSubmit(userInfo);
     };
 
@@ -107,7 +107,7 @@ export default function EditProfileForm ({ onSubmit, editUser, user_id}){
                 </div>
                 <div className="profile-form__actions">
                     <Button variant='cancel' onClick={() => navigate(`/user/${user_id}`)} />
-                    <Button type='submit'>Send</Button>
+                    <Button type='submit'>Edit Profile</Button>
                 </div>
             </div>
         </form>

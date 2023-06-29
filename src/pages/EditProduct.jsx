@@ -22,7 +22,7 @@ export default function EditProduct (){
     const editItemSubmit = async (newItemData) => {
         try {
             const edit = await editProductItem(id, newItemData, uploadImg);
-            navigate(`/product/${id}`);
+            navigate(`/user/product/${id}`);
         } catch (error) {
             console.log(error);
         }

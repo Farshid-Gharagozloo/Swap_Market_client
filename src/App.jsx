@@ -9,7 +9,9 @@ import EditProduct from './pages/EditProduct';
 import EditProfile from './pages/EditProfile';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
-
+import ProductUserPage from './pages/ProductUserPage';
+import Footer from './components/Footer/Footer';
+import AboutPage from './pages/AboutPage';
 
 function App() {
 
@@ -20,7 +22,9 @@ function App() {
       <div className="app__body">
         <Routes>
           <Route path='/' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage/>} />
           <Route path='/product/:id' element={<ProductPage/>} />
+          <Route path='/user/product/:id' element={<ProductUserPage/>} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/signin' element={<Login/>} />
           <Route path='/user/:id' element={<ProfilePage/>} />
@@ -29,6 +33,7 @@ function App() {
           <Route path='/user/edit/:id' element={<EditProfile/>} />
         </Routes>
       </div>
+      <Footer/>
     </div>
     </BrowserRouter>
   );

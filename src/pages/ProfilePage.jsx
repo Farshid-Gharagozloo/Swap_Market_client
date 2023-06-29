@@ -11,13 +11,6 @@ export default function ProfilePage (){
     const {id} = useParams();
     const [userInfo, setUserInfo] = useState(undefined);
 
-    // if (!id){
-    //     return (<h1>loading ...</h1>);
-    // }
-    // console.log(id);
-
-    // window.location.reload(false);
-
     const userloginToken = { headers: {
         Authorization: `Bearer ${sessionStorage.authToken}`,
     }, };
