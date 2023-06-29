@@ -25,7 +25,7 @@ export default function ProductDetails ({productInfo, id}){
             .catch((error) => {
                 return error.console.log(error);
             });
-    }, []);
+    }, [id]);
 
     console.log(categoryList);
 
