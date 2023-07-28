@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import './ProductDetails.scss';
-import { getListByCategory, getListByUsername } from '../../utils/api';
+import { getListByCategory, getListByUsername, getItemMessages } from '../../utils/api';
 import ItemCard from "../ItemCard/ItemCard";
+import './ProductDetails.scss';
+import ListOfMessages from '../ListOfMessages/ListOfMessages';
 
 export default function ProductDetails ({productInfo, id}){
 
     const exchange = productInfo.exchangeable_items.join(", ");
     const [categoryList, setCategoryList] = useState([]);
     const [userList, setUserList] = useState([]);
+    const [messageList, setMessageList] = useState(undefined);
 
     useEffect (() => {
         getListByCategory(productInfo.category, id)
@@ -25,9 +27,22 @@ export default function ProductDetails ({productInfo, id}){
             .catch((error) => {
                 return error.console.log(error);
             });
+
+        if (sessionStorage.authToken) {
+
+            getItemMessages(id,sessionStorage.user)
+                .then((response) => {
+                    setMessageList(response.data);
+                })
+                .catch((error) => {
+                    return error.console.log(error);
+                });
+        }
+
+        
     }, [id]);
 
-    console.log(categoryList);
+    // console.log(messageList);
 
     if (!categoryList.length){
         return (
@@ -74,6 +89,20 @@ export default function ProductDetails ({productInfo, id}){
                     </p>
                 </div>
             </div>
+
+            {!messageList ? null : (
+            <div className="product-details__table">
+                {
+                    messageList.map((message, index) => {
+                        return (
+                            <ListOfMessages key={index} message={message} user_id={productInfo.user_id} user_name={productInfo.user_name} />
+                        );
+                    })
+                }
+            </div>
+            
+            )}
+
             {!categoryList.length ? null : ( 
             <div className="product-details__table">
                 <h4 className="product-details__table-title">Other Products From {productInfo.category} Category: </h4>

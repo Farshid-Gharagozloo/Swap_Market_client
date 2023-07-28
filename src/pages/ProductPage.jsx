@@ -20,7 +20,7 @@ export default function ProductPage (){
             .catch((error) => {
                 return error.console.log(error);
             });
-    }, [id]);
+    }, [id]);  
 
     if (!productInfo){
         return (
