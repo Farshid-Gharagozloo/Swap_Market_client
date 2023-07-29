@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddProductForm({ onSubmit, categoryList, user_id }) {
 
-
     const navigate = useNavigate();
     const [newItem, setNewItem] = useState({
         name: "",
@@ -31,7 +30,6 @@ export default function AddProductForm({ onSubmit, categoryList, user_id }) {
         exchangeable_items: false
     });
 
-    // console.log(newItem.exchangeable_items);
     const exItems = ["1", "2", "3", "4", "5"];
 
     const handleSubmit = (e) => {
@@ -54,7 +52,6 @@ export default function AddProductForm({ onSubmit, categoryList, user_id }) {
         fd.append("exchangeable_items", JSON.stringify(newItem.exchangeable_items));
         fd.append("image", e.target.image.files[0]);
 
-        // console.log(fd);
         onSubmit(fd);
     };
 

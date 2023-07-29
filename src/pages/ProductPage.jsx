@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader/PageHeader";
 import { useEffect, useState } from "react";
-import { getProductItem } from "../utils/api";
+import { getProductItem, sendMessageToUser } from "../utils/api";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 
@@ -11,6 +11,15 @@ export default function ProductPage (){
 
     const [productInfo, setProductInfo] = useState(undefined);
     const { id } = useParams();
+
+    const addMessage = async (message) => {
+        try {
+            const sending = await sendMessageToUser(id, sessionStorage.user, message);
+            window.location.reload(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         getProductItem(id)
@@ -32,7 +41,7 @@ export default function ProductPage (){
     return (
         <>
             <PageHeader title={productInfo.name} onReturn={() => navigate(-1)}/>
-            <ProductDetails productInfo={productInfo} id={id} /> 
+            <ProductDetails productInfo={productInfo} id={id} onSubmit={addMessage} /> 
         </>
     );
 }

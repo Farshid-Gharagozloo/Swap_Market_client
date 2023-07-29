@@ -3,13 +3,24 @@ import { getListByCategory, getListByUsername, getItemMessages } from '../../uti
 import ItemCard from "../ItemCard/ItemCard";
 import './ProductDetails.scss';
 import ListOfMessages from '../ListOfMessages/ListOfMessages';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
 
-export default function ProductDetails ({productInfo, id}){
+
+export default function ProductDetails ({productInfo, id, onSubmit}){
 
     const exchange = productInfo.exchangeable_items.join(", ");
     const [categoryList, setCategoryList] = useState([]);
     const [userList, setUserList] = useState([]);
     const [messageList, setMessageList] = useState(undefined);
+    const [newMessage, setNewMessage] = useState({
+        text_message: "",
+        user_id: productInfo.user_id
+    });
+
+    const handleSubmit = (e) => {
+        onSubmit(newMessage)
+    }
 
     useEffect (() => {
         getListByCategory(productInfo.category, id)
@@ -38,11 +49,8 @@ export default function ProductDetails ({productInfo, id}){
                     return error.console.log(error);
                 });
         }
-
         
     }, [id]);
-
-    // console.log(messageList);
 
     if (!categoryList.length){
         return (
@@ -91,15 +99,27 @@ export default function ProductDetails ({productInfo, id}){
             </div>
 
             {!messageList ? null : (
-            <div className="product-details__table">
-                {
-                    messageList.map((message, index) => {
-                        return (
-                            <ListOfMessages key={index} message={message} user_id={productInfo.user_id} user_name={productInfo.user_name} />
-                        );
-                    })
-                }
-            </div>
+                <div className="product-details__table">
+                    {
+                        messageList.map((message, index) => {
+                            return (
+                                <ListOfMessages key={index} message={message} 
+                                user_id={productInfo.user_id} owner={productInfo.user_name} customer={message.yourself} />
+                            );
+                        })
+                    }
+                
+                    <form className="product-details__sending-message" onSubmit={handleSubmit} >
+                        <Input 
+                            type="textarea"
+                            placeholder="Send a Message to the Owner"
+                            name="message"
+                            onChange={(e) => setNewMessage({ ...newMessage, text_message: e.target.value })}
+                        />
+
+                        <Button type='submit'>send</Button>
+                    </form>
+                </div>
             
             )}
 

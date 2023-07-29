@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { deleteProduct, getProductItem } from "../utils/api";
+import { deleteProduct, getProductItem, sendMessageToUser } from "../utils/api";
 import PageHeader from "../components/PageHeader/PageHeader";
 import ProductUser from "../components/ProductUser/ProductUser";
 
@@ -10,6 +10,15 @@ export default function ProductUserPage (){
 
     const [productInfo, setProductInfo] = useState(undefined);
     const { id } = useParams();
+
+    const addResponse = async (message) => {
+        try {
+            const sending = await sendMessageToUser(id, sessionStorage.user, message);
+            window.location.reload(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
         getProductItem(id)

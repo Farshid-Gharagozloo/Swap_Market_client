@@ -1,6 +1,6 @@
 import './ListOfMessages.scss';
 
-export default function ListOfMessages ({ message, user_id, user_name}){
+export default function ListOfMessages ({ message, user_id, owner, customer}){
 
     let date = new Date(message.create_time);
     date = date.toLocaleString();
@@ -10,8 +10,9 @@ export default function ListOfMessages ({ message, user_id, user_name}){
         return (text.length === 1) ? '0'+ text : text;  
     });
 
+    // console.log(user_name);
 
-    const author = message.writer_id === user_id ? user_name : message.yourself;
+    const author = message.writer_id == user_id ? owner : customer;
 
     return (
         <div className={message.writer_id === Number(sessionStorage.user) ? "messages messages--active" : "messages" } >
