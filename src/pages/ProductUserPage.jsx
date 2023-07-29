@@ -11,15 +11,6 @@ export default function ProductUserPage (){
     const [productInfo, setProductInfo] = useState(undefined);
     const { id } = useParams();
 
-    const addResponse = async (message) => {
-        try {
-            const sending = await sendMessageToUser(id, sessionStorage.user, message);
-            window.location.reload(false);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     useEffect(() => {
         getProductItem(id)
             .then((response) => {

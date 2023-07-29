@@ -5,7 +5,6 @@ import ListOfMessages from "../ListOfMessages/ListOfMessages";
 import './ProductContactsMessages.scss';
 
 
-
 export default function ProductContactsMessages ({ messageList, productInfo, onSubmit }){
 
     const [newMessage, setNewMessage] = useState({

@@ -35,3 +35,5 @@ export const getListByUsername = (username, id) => axios.get(`/list/username/${u
 export const getItemMessages = (id, user) => axios.get(`/message/${user}/${id}`); 
 
 export const sendMessageToUser = (id, user, message) => axios.post(`/message/${user}/${id}`, message);
+
+export const deleteMessage= (id) => axios.delete(`/message/${id}`);

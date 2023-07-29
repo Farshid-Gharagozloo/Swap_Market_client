@@ -37,6 +37,10 @@
         font-size: 0.8rem;
     }
 
+    &__footer{
+        margin-bottom: 0.25rem;
+    }
+
     @include tablet {
         margin: 1.5rem 2.5rem;
 
