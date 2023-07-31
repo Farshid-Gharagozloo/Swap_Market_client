@@ -5,6 +5,10 @@
 
   border-radius: rem(3px);
 
+  &--active{
+    @include box(rem(15px));
+  }
+
   &__icon {
     aspect-ratio: 1;
     height: 100%;

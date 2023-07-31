@@ -1,0 +1,17 @@
+@import '../../styles/all';
+
+.product-messages__sending{
+    margin: 0 1rem;
+
+    @include tablet {
+        margin: 0 2.5rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    @include desktop {
+        margin: 1rem auto;
+        max-width: 45rem;
+    }
+}

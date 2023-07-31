@@ -1,13 +1,26 @@
 import { useEffect, useState } from 'react';
-import './ProductDetails.scss';
-import { getListByCategory, getListByUsername } from '../../utils/api';
+import { getListByCategory, getListByUsername, getItemMessages } from '../../utils/api';
 import ItemCard from "../ItemCard/ItemCard";
+import './ProductDetails.scss';
+import ListOfMessages from '../ListOfMessages/ListOfMessages';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
 
-export default function ProductDetails ({productInfo, id}){
+
+export default function ProductDetails ({productInfo, id, onSubmit}){
 
     const exchange = productInfo.exchangeable_items.join(", ");
     const [categoryList, setCategoryList] = useState([]);
     const [userList, setUserList] = useState([]);
+    const [messageList, setMessageList] = useState(undefined);
+    const [newMessage, setNewMessage] = useState({
+        text_message: "",
+        user_id: productInfo.user_id
+    });
+
+    const handleSubmit = (e) => {
+        onSubmit(newMessage)
+    }
 
     useEffect (() => {
         getListByCategory(productInfo.category, id)
@@ -25,9 +38,19 @@ export default function ProductDetails ({productInfo, id}){
             .catch((error) => {
                 return error.console.log(error);
             });
-    }, [id]);
 
-    console.log(categoryList);
+        if (sessionStorage.authToken) {
+
+            getItemMessages(id,sessionStorage.user)
+                .then((response) => {
+                    setMessageList(response.data);
+                })
+                .catch((error) => {
+                    return error.console.log(error);
+                });
+        }
+        
+    }, [id]);
 
     if (!categoryList.length){
         return (
@@ -74,6 +97,32 @@ export default function ProductDetails ({productInfo, id}){
                     </p>
                 </div>
             </div>
+
+            {!messageList ? null : (
+                <div className="product-details__table">
+                    {
+                        messageList.map((message, index) => {
+                            return (
+                                <ListOfMessages key={index} message={message} 
+                                user_id={productInfo.user_id} owner={productInfo.user_name} customer={message.yourself} />
+                            );
+                        })
+                    }
+                
+                    <form className="product-details__sending-message" onSubmit={handleSubmit} >
+                        <Input 
+                            type="textarea"
+                            placeholder="Send a Message to the Owner"
+                            name="message"
+                            onChange={(e) => setNewMessage({ ...newMessage, text_message: e.target.value })}
+                        />
+
+                        <Button type='submit'>send</Button>
+                    </form>
+                </div>
+            
+            )}
+
             {!categoryList.length ? null : ( 
             <div className="product-details__table">
                 <h4 className="product-details__table-title">Other Products From {productInfo.category} Category: </h4>

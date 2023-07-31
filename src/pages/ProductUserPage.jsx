@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { deleteProduct, getProductItem } from "../utils/api";
+import { deleteProduct, getProductItem, sendMessageToUser } from "../utils/api";
 import PageHeader from "../components/PageHeader/PageHeader";
 import ProductUser from "../components/ProductUser/ProductUser";
 

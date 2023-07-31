@@ -1,11 +1,8 @@
 import axios from 'axios';
 
-// export const DEFAULT_API_KEY = process.env.REACT_APP_API_KEY || 'ThisIsAFallbackApiKey';
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+// axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
-// axios.defaults.params = {
-//   api_key: DEFAULT_API_KEY,
-// };
 
 export const addUser = (userInformation) => axios.post('/profile/signup',userInformation);
 
@@ -29,7 +26,13 @@ export const getProductList = () => axios.get('/list');
 
 export const deleteProduct = (id) => axios.delete(`/product/${id}`);
 
-
 export const getListByCategory = (category, id) => axios.get(`/list/category/${category}/${id}`);
 
 export const getListByUsername = (username, id) => axios.get(`/list/username/${username}/${id}`);
+
+
+export const getItemMessages = (id, user) => axios.get(`/message/${user}/${id}`); 
+
+export const sendMessageToUser = (id, user, message) => axios.post(`/message/${user}/${id}`, message);
+
+export const deleteMessage= (id) => axios.delete(`/message/${id}`);

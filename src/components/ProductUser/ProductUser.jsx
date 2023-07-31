@@ -2,15 +2,42 @@ import ActionButton from "../ActionButton/ActionButton";
 import deleteIcon from '../../assets/icons/delete-svgrepo-com.svg';
 import editIcon from '../../assets/icons/edit-svgrepo-com.svg';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from '../Modal/Modal';
 import './ProductUser.scss';
+import { getItemMessages, sendMessageToUser  } from "../../utils/api";
+import ProductContactsMessages from "../ProductContactsMessages/ProductContactsMessages";
 
 
 export default function ProductUser ({productInfo, onDelete, id}){
 
     const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
+    const [customerMessages, setCustomerMessages] = useState([]);
+    
+    const arrangedMessageList = [];
+
+    const addResponse = async (message) => {
+        try {
+            const sending = await sendMessageToUser(id, sessionStorage.user, message);
+            window.location.reload(false);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect (() => {
+        if (sessionStorage.authToken) {
+            getItemMessages(id, sessionStorage.user)
+                .then((response) => {
+                    setCustomerMessages(response.data);
+                })
+                .catch((error) => {
+                    return error.console.log(error);
+                });
+        }
+
+    }, [id]);
 
     const exchange = productInfo.exchangeable_items.join(", ");
     const handleDelete = () => {
@@ -21,6 +48,24 @@ export default function ProductUser ({productInfo, onDelete, id}){
         navigate(`/product/edit/${id}`);
     };
     
+
+    function removeDuplicates(arr) {
+        let unique = [];
+        arr.forEach(element => {
+            if (!unique.includes(element.caller)) {
+                unique.push(element.caller);
+            }
+        });
+        return unique;
+    }
+
+    if (customerMessages.length) {
+        const uniqueCallerPersons = removeDuplicates(customerMessages);
+
+        uniqueCallerPersons.forEach((element) => {
+            arrangedMessageList.push( customerMessages.filter(message => message.caller === element));
+        })
+    }
 
     return (
         <section className="product-user">
@@ -47,6 +92,22 @@ export default function ProductUser ({productInfo, onDelete, id}){
                     <ActionButton src={editIcon} alt="edit_icon" onClick={handleEdit} />                
                 </div>
             </div>
+
+            {!customerMessages.length ? null : (
+                <div className="product-user__table">
+                    {
+                        arrangedMessageList.map((list, index) => {
+                            return (
+                                <ProductContactsMessages key={index} messageList={list}
+                                    productInfo={productInfo} onSubmit={addResponse} />
+                            );
+                        })
+                    }
+                </div>
+            )
+
+            }
+
             {showModal && (
                 <Modal
                 title={`Delete ${productInfo.name} item?`}
