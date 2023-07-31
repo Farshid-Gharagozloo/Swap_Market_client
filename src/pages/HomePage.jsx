@@ -21,9 +21,6 @@ export default function HomePage (){
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
-
-    useEffect(() =>{
         getCategoryList()
             .then((response) => {
                 setCategoryList(response.data);
