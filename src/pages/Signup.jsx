@@ -20,9 +20,9 @@ export default function Signup (){
     };
 
     return (
-        <>
+        <section>
             <PageHeader title="Sign up" />
             <SignupForm onSubmit={handleSubmit} />
-        </>
+        </section>
     );
 }

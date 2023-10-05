@@ -3,7 +3,7 @@ import Input from "../Input/Input";
 import Button from '../Button/Button';
 import { formValidate, loginFromRules } from '../../utils/validators';
 import "./LoginForm.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LoginForm ({onSubmit}){
     const navigate = useNavigate();
@@ -47,6 +47,9 @@ export default function LoginForm ({onSubmit}){
                     hasError={loginError.password}
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
                 />
+                <Link to="/signup" className="login-form__link">
+                    <p>If you don't have account click here</p>
+                </Link>
             </div>
             <div className="login-form__actions">
                 <Button variant='cancel' onClick={() => navigate('/')} />

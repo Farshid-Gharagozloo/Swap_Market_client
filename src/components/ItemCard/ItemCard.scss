@@ -8,11 +8,12 @@
     text-decoration: none;
     width: 15rem;
     border-radius: 2rem;
+    background-color: $color-white;
 
     box-shadow: rgba(49, 167, 177, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
     &:hover{
-        box-shadow: rgba(212, 70, 82, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        box-shadow: rgba(212, 70, 82, 0.48) 6px 2px 16px 0px, rgba(212, 70, 82, 0.48) -6px -2px 16px 0px;
 
     }
 

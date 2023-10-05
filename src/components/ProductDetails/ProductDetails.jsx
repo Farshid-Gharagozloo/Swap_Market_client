@@ -5,6 +5,7 @@ import './ProductDetails.scss';
 import ListOfMessages from '../ListOfMessages/ListOfMessages';
 import Input from '../Input/Input';
 import Button from '../Button/Button';
+import { formValidate, messageRules } from '../../utils/validators';
 
 
 export default function ProductDetails ({productInfo, id, onSubmit}){
@@ -17,9 +18,23 @@ export default function ProductDetails ({productInfo, id, onSubmit}){
         text_message: "",
         user_id: productInfo.user_id
     });
+    const [errorMessage, setErrorMessage] = useState({
+        message_error: false
+    });
 
     const handleSubmit = (e) => {
-        onSubmit(newMessage)
+        e.preventDefault();
+
+        const error = messageRules(newMessage);
+        setErrorMessage(error);
+
+        if (!formValidate(error)) {
+            return;
+        }
+
+        else {
+            onSubmit(newMessage)
+        }
     }
 
     useEffect (() => {
@@ -57,6 +72,8 @@ export default function ProductDetails ({productInfo, id, onSubmit}){
             <h4>Loading ...</h4>
         );
     }
+
+    // console.log(newMessage);
 
     return (
         <section className="product-details">
@@ -114,6 +131,7 @@ export default function ProductDetails ({productInfo, id, onSubmit}){
                             type="textarea"
                             placeholder="Send a Message to the Owner"
                             name="message"
+                            hasError={errorMessage.message_error}
                             onChange={(e) => setNewMessage({ ...newMessage, text_message: e.target.value })}
                         />
 

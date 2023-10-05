@@ -43,6 +43,12 @@ export function editProfileFromRules(formData) {
   };
 }
 
+export function messageRules(message) {
+  return {
+    message_error: validator.isEmpty(message.text_message.trim())
+  };
+}
+
 export function formValidate(rules) {
     let result = true;
     for (const key in rules) {
@@ -50,4 +56,3 @@ export function formValidate(rules) {
     }
     return result;
 }
-

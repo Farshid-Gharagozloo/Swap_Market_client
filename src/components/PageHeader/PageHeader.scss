@@ -28,7 +28,7 @@
 
   &__title {
     @include text-page-header;
-    color: $color-light-sea;
+    color: $color-red;
   }
 
   @include tablet {

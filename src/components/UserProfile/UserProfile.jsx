@@ -3,7 +3,7 @@ import { getUserItemList } from "../../utils/api";
 import ItemCard from "../ItemCard/ItemCard";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import './UserProfile.scss';
-import swapIcon from '../../assets/logo/swap_logo.jpg';
+import swapIcon from '../../assets/logo/swap_logo_2.png';
 
 export default function UserProfile ({profileInfo, userloginToken}){
     const {first_name, last_name, address, postal_code, email, contact_number} = profileInfo;
@@ -29,7 +29,7 @@ export default function UserProfile ({profileInfo, userloginToken}){
                 <ul className="user-profile__information">
                     <li className="user-profile__list">
                         <h4 className="user-profile__header">Name:</h4>
-                        <p className="user-profile__info">{first_name}, {last_name}</p>
+                        <p className="user-profile__info">{first_name} {last_name}</p>
                     </li>
                     <li className="user-profile__list">
                         <h4 className="user-profile__header">Email:</h4>
@@ -54,7 +54,14 @@ export default function UserProfile ({profileInfo, userloginToken}){
                             Edit your profile
                         </button>
                     </li>
+                    <li className="user-profile__list">
+                    <Link to={`/additem/${id}`} className="user-profile__add-item">
+                        <p className="user-profile__name">Add your new product here</p>
+                        <img className="user-profile__image" src={swapIcon} alt='add_image'/>
+                    </Link>
+                    </li>
                 </ul>
+                
             </div>
             <div className="user-profile__products">
                 {
@@ -65,10 +72,10 @@ export default function UserProfile ({profileInfo, userloginToken}){
                     })
                 }
             </div>
-            <Link to={`/additem/${id}`} className="user-profile__add-item">
+            {/* <Link to={`/additem/${id}`} className="user-profile__add-item">
                 <p className="user-profile__name">Add your new product here</p>
                 <img className="user-profile__image" src={swapIcon} alt='add_image'/>
-            </Link>
+            </Link> */}
         </section>
     );
 }

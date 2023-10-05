@@ -16,6 +16,7 @@
     &__image{
         width: 100%;
         height: auto;
+        border-radius: 2.5rem;
     }
 
     &__info{
@@ -31,7 +32,7 @@
     &__title{
         font-size: 0.85rem;
         font-weight: bold;
-        color: $color-light-sea;
+        color: $color-white;
     }
 
     &__item{
@@ -58,8 +59,8 @@
         }
 
         &__info{
-            margin: 0;
-            width: 42vw;
+            margin: auto 2rem;
+            width: 32vw;
         }
 
         &__table{
@@ -72,8 +73,10 @@
     @include desktop {
 
         gap: 2rem;
+
         &__image {
-            width: 28rem;
+            max-width: 30rem;
+            margin-left: 5vw;
         }
 
         &__info {

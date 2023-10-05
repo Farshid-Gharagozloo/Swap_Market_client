@@ -2,13 +2,25 @@
 
 
 .signup-form{
+    // background-image: radial-gradient(circle at center center, rgb(252, 155, 156),rgb(237, 122, 126),rgb(221, 89, 96),rgb(206, 56, 65),rgb(190, 23, 35));
+    // background-image: repeating-linear-gradient(135deg, hsla(27,91%,45%,0.1) 0px, hsla(27,91%,45%,0.1) 1px,transparent 1px,
+    //     transparent 11px,hsla(27,91%,45%,0.1) 11px, hsla(27,91%,45%,0.1) 12px,
+    //     transparent 12px, transparent 22px),repeating-linear-gradient(90deg, hsla(27,91%,45%,0.05) 0px, hsla(27,91%,45%,0.05) 1px,
+    //     transparent 1px, transparent 11px,hsla(27,91%,45%,0.05) 11px, hsla(27,91%,45%,0.05) 12px,transparent 12px, transparent 32px),
+    //     repeating-linear-gradient(225deg, hsla(27,91%,45%,0.05) 0px, hsla(27,91%,45%,0.05) 1px,transparent 1px, transparent 11px,hsla(27,91%,45%,0.05) 11px, hsla(27,91%,45%,0.05) 12px,
+    //     transparent 12px, transparent 32px),repeating-linear-gradient(180deg, hsla(27,91%,45%,0.05) 0px, hsla(27,91%,45%,0.05) 1px,transparent 1px, transparent 11px,hsla(27,91%,45%,0.05) 11px, hsla(27,91%,45%,0.05) 12px,
+    //     transparent 12px, transparent 32px),repeating-linear-gradient(135deg, hsla(27,91%,45%,0.05) 0px, hsla(27,91%,45%,0.05) 1px,transparent 1px, transparent 11px,hsla(27,91%,45%,0.05) 11px, hsla(27,91%,45%,0.05) 12px,
+    //     transparent 12px, transparent 32px),linear-gradient(180deg, rgb(66, 24, 4),rgb(204, 64, 80));
+
+    // border-radius: 0.5rem;
+
     &__wrapper{
         padding: 1rem 1.5rem;
     }
 
     &__title{
         padding: 1rem 0;
-        color: $color-light-sea;
+        color: $color-white;
     }
 
     &__address-info {
@@ -45,6 +57,10 @@
     }
 
     @include desktop {
+
+        @include push-auto;
+        width: rem(1020px);
+
         &__actions {
             @include soft-sides(rem(40px));
         }

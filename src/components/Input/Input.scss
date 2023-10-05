@@ -56,6 +56,15 @@
     background-size: rem(24px);
     background-position: calc(100% - 16px) center;
     padding-right: rem(40px);
+    border-color: $color-white;
+    &:hover,
+    &:focus{
+      border-color: $color-white;
+    }
+
+    &::placeholder{
+      color: $color-white;
+    }
   }
 
   &__warning {
