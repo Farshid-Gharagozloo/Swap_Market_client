@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import ListOfMessages from "../ListOfMessages/ListOfMessages";
+import { formValidate, messageRules } from '../../utils/validators';
 import './ProductContactsMessages.scss';
 
 
@@ -11,9 +12,20 @@ export default function ProductContactsMessages ({ messageList, productInfo, onS
         text_message: "",
         user_id: ""
     });
+    const [errorMessage, setErrorMessage] = useState({
+        message_error: false
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const error = messageRules(newMessage);
+        setErrorMessage(error);
+
+        if (!formValidate(error)) {
+            return;
+        }
+
         onSubmit(newMessage)
     }
 
@@ -36,6 +48,7 @@ export default function ProductContactsMessages ({ messageList, productInfo, onS
                     type="textarea"
                     placeholder="Send a response to the message"
                     name="message"
+                    hasError={errorMessage.message_error}
                     onChange={(e) => setNewMessage({ ...newMessage, text_message: e.target.value })}
                 />
 

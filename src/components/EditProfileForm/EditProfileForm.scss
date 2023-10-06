@@ -8,7 +8,7 @@
 
     &__title{
         padding: 1rem 0;
-        color: $color-light-sea;
+        color: $color-white;
     }
 
     &__address-info {
@@ -45,6 +45,10 @@
     }
 
     @include desktop {
+
+        @include push-auto;
+        width: rem(1020px);
+
         &__actions {
             @include soft-sides(rem(40px));
         }

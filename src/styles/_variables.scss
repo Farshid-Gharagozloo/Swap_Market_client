@@ -8,7 +8,9 @@ $width-tablet: 768px;
 $width-desktop: 1280px;
 
 // Max and Min screen sizes
-$max-width: rem(1020px);
+// $max-width: rem(1020px);
+$max-width: 90vw;
+
 $min-width: $width-mobile;
 
 /* Spacing

@@ -13,6 +13,7 @@
     &__image{
         width: 100%;
         height: auto;
+        border-radius: 2.5rem;
     }
 
     &__info{
@@ -28,7 +29,7 @@
     &__title{
         font-size: 0.85rem;
         font-weight: bold;
-        color: $color-light-sea;
+        color: $color-white;
     }
 
     &__item, &__user-info{
@@ -45,7 +46,7 @@
     &__table-title{
         margin: 1rem;
         font-size: 0.9rem;
-        color: $color-green;
+        color: $color-red;
     }
 
     &__category-table {
@@ -117,11 +118,13 @@
         }
 
         &__image {
-            width: 28rem;
+            max-width: 30rem;
+            margin-left: 5vw;
         }
 
         &__info {
             width: 25rem;
+            margin: auto 2rem;
         }
 
         &__sending-message{

@@ -16,6 +16,16 @@
         padding: rem(16px);
     }
 
+    &__link{
+        text-align: center;
+        color: $color-white;
+        text-decoration: none;
+
+        :hover{
+            color: $color-green;
+        }
+    }
+
     @include tablet {
 
         &__inputs {
@@ -32,6 +42,10 @@
     }
 
     @include desktop {
+
+        @include push-auto;
+        width: rem(1020px);
+        
         &__actions {
             @include soft-sides(rem(40px));
         }

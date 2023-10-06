@@ -19,11 +19,11 @@
     }
 
     &__upload {
-        color: $color-light-sea;
+        color: $color-white;
     }
 
     &__upload::file-selector-button{
-        background-color: $color-light-sea;
+        background-color: $color-red;
         color: $color-white;
         border-radius: 4px;
         border: none;
@@ -31,6 +31,7 @@
 
         &:hover{
             background-color: $color-green;
+            cursor: pointer;
         }
     }
 
@@ -56,6 +57,9 @@
     }
 
     @include desktop {
+
+        @include push-auto;
+        width: rem(1020px);
 
         &__inputs-right, &__inputs-left{
             max-width: 28rem;

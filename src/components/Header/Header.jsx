@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo/swap_logo.jpg";
+import logo from "../../assets/logo/swap_logo.png";
 import userlogo from "../../assets/icons/user-circle-svgrepo-com.svg"
 import './Header.scss';
 
