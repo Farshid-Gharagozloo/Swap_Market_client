@@ -1,15 +1,133 @@
 @import '../../styles/all';
 
 .about{
-    margin: 1rem;
-    font-size: 0.85rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 
-
-    @include tablet{
-        font-size: 1.2rem;
+    &__hero{
         margin: 3rem;
     }
+
+    &__tittle{
+        padding: 1rem;
+        font-size: 6vw;
+        color: $color-white;
+    }
+
+    &__cards{
+        min-height: 145vw;
+    }
+
+    &__allcard{
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__firstcard{
+        position: absolute;
+        left: 7vw;
+        top: 12.5vh;
+        background-color: $color-white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: solid 1.75px $color-graphite;
+        margin: 0 2rem;
+        min-height: 100vw;
+        z-index: 8;
+    }
+
+    &__image{
+        padding: 1rem;
+        width: 60vw;
+        height: max-content;
+        margin: auto 0;
+    }
+
+    &__text{
+        font-size: 3vw;
+        font-weight: bold;
+        color: $color-red;
+        width: 60vw;
+        padding: 2rem 3rem;
+        margin: auto 0;
+    }
+
+    &__secondcard{
+        position: absolute;
+        background-color: $color-white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vw;
+        margin: 0 2rem;
+        border: solid 1px $color-red;
+        z-index: 6;
+        left: 11vw;
+        top: 10vh;
+        filter: blur(3px)
+    }
+
+    &__thirdcard{
+        @extend .about__secondcard;
+        border: solid 1px $color-red;
+        z-index: 4;
+        left: 15vw;
+        top: 7.5vh;
+    }
+
+    &__lastcard {
+        @extend .about__secondcard;
+        border: solid 1px $color-red;
+        z-index: 2;
+        left: 19vw;
+        top: 5vh;
+    } 
+
+    &__firstcard{
+        animation-name: cross-fade-blur;
+        animation-duration: 0.75s;
+    }
+
+    &__block{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    &__motto{
+        font-size: 1.25rem;
+        margin: 0 2.5rem;
+        color: $color-red;
+    }
+
+    &__description{
+        font-size: 0.85rem;
+        color: $color-graphite;
+        margin: 0 2.5rem;
+    }
+
+    &__button{
+        border-radius: 1rem;
+        border: none;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        padding: 0.5rem 1rem;
+        background-color: $color-graphite;
+        color: $color-white;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-light-sea;
+        }
+    }
+
 }
+
+@keyframes cross-fade-blur {
+    0% {filter: blur(4px);}
+    25% {filter: blur(3px);}
+    50% {filter: blur(2px);}
+    75% {filter: blur(1px);}
+	100% {filter: blur(0px);}
+  }
