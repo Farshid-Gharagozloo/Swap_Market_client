@@ -3,20 +3,21 @@
 .about{
 
     &__hero{
-        margin: 3rem;
+        margin: 4rem 3rem;
+        margin-top: 0;
     }
 
-    &__tittle{
+    &__title{
         padding: 1rem;
         font-size: 6vw;
         color: $color-white;
     }
 
     &__cards{
-        min-height: 145vw;
+        min-height: 140vw;
     }
 
-    &__allcard{
+    &__allcards{
         position: relative;
         cursor: pointer;
     }
@@ -34,6 +35,8 @@
         margin: 0 2rem;
         min-height: 100vw;
         z-index: 8;
+        animation-name: cross-fade-blur;
+        animation-duration: 0.75s;
     }
 
     &__image{
@@ -84,11 +87,6 @@
         top: 5vh;
     } 
 
-    &__firstcard{
-        animation-name: cross-fade-blur;
-        animation-duration: 0.75s;
-    }
-
     &__block{
         display: flex;
         flex-direction: column;
@@ -118,8 +116,79 @@
         color: $color-white;
         &:hover{
             cursor: pointer;
-            background-color: $color-light-sea;
+            background-color: $color-white;
+            color: $color-green;
         }
+    }
+
+    @include tablet{
+        &__title{
+            font-size: 3rem;
+            margin: 2rem 0;
+            max-width: 38rem;
+        }
+
+        &__cards{
+            min-height: 130vh;
+            overflow: hidden; 
+        }
+
+        &__image{
+            width: 45vw;
+            max-width: 45rem;
+        }
+
+        &__text{
+            width: 45vw;
+        }
+
+        &__firstcard{
+            min-height: 50rem;
+            left: 20vw;
+            animation-name: move-card-first;
+            animation-duration: 0.75s; 
+        }
+
+        &__secondcard{
+            min-height: 50rem;
+            left: 80vw;
+            top: 12.5vh;
+            animation-name: move-card-second;
+            animation-duration: 0.75s;
+        }
+
+        &__thirdcard{
+            display: none;
+        }
+
+        &__lastcard{
+            left: -40vw;
+            animation-name: move-card-third;
+            animation-duration: 0.75s;
+        }
+
+        &__motto{
+            font-size: 1.75rem;
+            max-width: 45rem;
+            margin: 0 4rem;
+        }
+
+        &__description{
+            font-size: 1.10rem;
+            max-width: 55rem;
+            margin: 0 4rem;
+        }
+
+        &__button{
+            font-size: 1.1rem;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    @include desktop{
+
     }
 
 }
@@ -130,4 +199,35 @@
     50% {filter: blur(2px);}
     75% {filter: blur(1px);}
 	100% {filter: blur(0px);}
-  }
+}
+
+@keyframes move-card-first {
+    0% {
+      transform: translate(61vw, 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-card-second {
+    0% {
+      transform: translate(120vw, 0);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-card-third {
+    0% {
+      transform: translate(60vw, 0);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+

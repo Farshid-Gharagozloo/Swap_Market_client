@@ -54,11 +54,11 @@ export default function AboutUs (){
     return (
         <>
         <div className="about__hero">
-            <h2 className="about__tittle">Swap Market Site: Revolutionizing the Way You Exchange</h2>
+            <h2 className="about__title">Swap Market Site: Revolutionizing the Way You Exchange</h2>
         </div>
         <section className="about__cards">
             {allCards.map((card, index) => (
-                <div className="about__allcard" key={index} onClick={handleClick}>
+                <div className="about__allcards" key={index} onClick={handleClick}>
                     <section className={
                             index === firstImage
                                 ? "about__firstcard"
