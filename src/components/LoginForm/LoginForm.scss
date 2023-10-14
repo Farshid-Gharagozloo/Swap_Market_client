@@ -5,6 +5,7 @@
 
     &__inputs {
         padding: 1rem;
+        animation: cross-fade-blur 0.75s ease-in;
     }
 
 
@@ -51,4 +52,12 @@
         }
     }    
 
+}
+
+@keyframes cross-fade-blur {
+    0% {filter: blur(4px);}
+    25% {filter: blur(3px);}
+    50% {filter: blur(2px);}
+    75% {filter: blur(1px);}
+	100% {filter: blur(0px);}
 }

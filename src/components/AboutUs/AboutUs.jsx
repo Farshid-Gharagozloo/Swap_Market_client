@@ -4,9 +4,14 @@ import image_3 from "../../assets/image/message.png";
 import image_4 from "../../assets/image/like_minded.webp";
 import React, { useEffect, useState, useRef } from 'react';
 import './AboutUs.scss';
+import { useNavigate } from "react-router-dom";
 
 
 export default function AboutUs (){
+
+    const navigate = useNavigate();
+
+    let account = !sessionStorage.authToken ? "Create Account" : "Your Account";
 
     const allCards = [
         {imageUrl: image_1 , text: "Effortlessly Discover Your Desired Products – No Account Required!" },
@@ -87,8 +92,10 @@ export default function AboutUs (){
                 The site's responsive design ensures a seamless browsing experience across mobile, 
                 tablet, and desktop devices, making it convenient for users to access the platform anytime, anywhere.
             </p>
-            <button className="about__button">
-                Create Account
+            <button className="about__button"
+                onClick={() => {!sessionStorage.authToken ? 
+                    (navigate('/signup')) : (navigate(`/user/${sessionStorage.user}`))}}>
+                {account}
             </button>
             <p className="about__description">
                 For those seeking affordable options or unique finds, accessing them easily can be a challenge. 
@@ -96,7 +103,7 @@ export default function AboutUs (){
                 offering affordable alternatives, and providing a convenient platform for decluttering, 
                 all to help you create a more organized living environment.
             </p>
-            <button className="about__button">
+            <button className="about__button" onClick={() => navigate('/list')}>
                 Explore List Of Items
             </button>
         </div>

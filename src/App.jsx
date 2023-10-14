@@ -7,11 +7,11 @@ import AddProduct from './pages/AddProduct';
 import ProfilePage from './pages/ProfilePage';
 import EditProduct from './pages/EditProduct';
 import EditProfile from './pages/EditProfile';
-import HomePage from './pages/HomePage';
+import ListPage from './pages/ListPage';
 import ProductPage from './pages/ProductPage';
 import ProductUserPage from './pages/ProductUserPage';
 import Footer from './components/Footer/Footer';
-import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
 
 function App() {
 
@@ -21,8 +21,8 @@ function App() {
       <Header/>
       <div className="app__body">
         <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/about' element={<AboutPage/>} />
+          <Route path='/' element={<HomePage/>} />
+          <Route path='/list' element={<ListPage />} />
           <Route path='/product/:id' element={<ProductPage/>} />
           <Route path='/user/product/:id' element={<ProductUserPage/>} />
           <Route path='/signup' element={<Signup/>} />

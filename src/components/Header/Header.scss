@@ -49,18 +49,22 @@
         list-style-type:none;
         cursor: pointer;
 
+        &:hover{
+            color: $color-graphite;
+        }
+
+        &--active{
+            color: $color-red;
+        }
+
+        &--none{
+            display: none;
+        }
+
         @include tablet {
             padding-top: 3rem;
             font-size: 1.5rem;
         }
-    }
-
-    &__page:hover{
-        color: $color-green;
-    }
-
-    &__page--active{
-        color: $color-red;
     }
 
     &__user-logo {
@@ -68,6 +72,10 @@
         margin-right: 1rem;
         position: relative;
         bottom: 1rem;
+        &:hover{
+            background-color: $color-white;
+            border-radius: 2rem;
+        }
 
         @include tablet {
             width: 4rem;
