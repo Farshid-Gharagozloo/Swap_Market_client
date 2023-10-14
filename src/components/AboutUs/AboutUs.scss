@@ -1,15 +1,333 @@
 @import '../../styles/all';
 
 .about{
-    margin: 1rem;
-    font-size: 0.85rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 
+    &__hero{
+        margin: 4rem 3rem;
+        margin-top: 0;
+    }
+
+    &__title{
+        padding: 1rem;
+        font-size: 6vw;
+        color: $color-white;
+    }
+
+    &__cards{
+        min-height: 140vw;
+    }
+
+    &__allcards{
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__firstcard{
+        position: absolute;
+        left: 7vw;
+        top: 12.5vh;
+        background-color: $color-white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: solid 1.75px $color-graphite;
+        margin: 0 2rem;
+        min-height: 100vw;
+        z-index: 8;
+        animation-name: cross-fade-blur;
+        animation-duration: 0.75s;
+    }
+
+    &__image{
+        padding: 1rem;
+        width: 60vw;
+        height: max-content;
+        margin: auto 0;
+    }
+
+    &__text{
+        font-size: 3vw;
+        font-weight: bold;
+        color: $color-red;
+        width: 60vw;
+        padding: 2rem 3rem;
+        margin: auto 0;
+    }
+
+    &__secondcard{
+        position: absolute;
+        background-color: $color-white;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vw;
+        margin: 0 2rem;
+        border: solid 1px $color-red;
+        z-index: 6;
+        left: 11vw;
+        top: 10vh;
+        filter: blur(3px)
+    }
+
+    &__thirdcard{
+        @extend .about__secondcard;
+        border: solid 1px $color-red;
+        z-index: 4;
+        left: 15vw;
+        top: 7.5vh;
+    }
+
+    &__lastcard {
+        @extend .about__secondcard;
+        border: solid 1px $color-red;
+        z-index: 2;
+        left: 19vw;
+        top: 5vh;
+    } 
+
+    &__block{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    &__motto{
+        font-size: 1.25rem;
+        margin: 0 2.5rem;
+        color: $color-red;
+    }
+
+    &__description{
+        font-size: 0.85rem;
+        color: $color-graphite;
+        margin: 0 2.5rem;
+    }
+
+    &__button{
+        border-radius: 1rem;
+        border: none;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        padding: 0.5rem 1rem;
+        background-color: $color-graphite;
+        color: $color-white;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-white;
+            color: $color-green;
+        }
+    }
 
     @include tablet{
-        font-size: 1.2rem;
-        margin: 3rem;
+        &__title{
+            font-size: 3rem;
+            margin: 2rem 0;
+            max-width: 38rem;
+        }
+
+        &__cards{
+            min-height: 130vh;
+            overflow: hidden; 
+        }
+
+        &__image{
+            width: 45vw;
+            max-width: 45rem;
+        }
+
+        &__text{
+            width: 45vw;
+        }
+
+        &__firstcard{
+            min-height: 50rem;
+            left: 20vw;
+            animation-name: move-card-first;
+            animation-duration: 0.75s; 
+        }
+
+        &__secondcard{
+            min-height: 50rem;
+            left: 80vw;
+            top: 12.5vh;
+            animation-name: move-card-second;
+            animation-duration: 0.75s;
+        }
+
+        &__thirdcard{
+            display: none;
+        }
+
+        &__lastcard{
+            left: -40vw;
+            animation-name: move-card-third;
+            animation-duration: 0.75s;
+        }
+
+        &__motto{
+            font-size: 1.75rem;
+            max-width: 45rem;
+            margin: 0 4rem;
+        }
+
+        &__description{
+            font-size: 1.10rem;
+            max-width: 55rem;
+            margin: 0 4rem;
+        }
+
+        &__button{
+            font-size: 1.1rem;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            margin-bottom: 3rem;
+        }
+    }
+
+    @include desktop{
+        &__title{
+            font-size: 4rem;
+            margin: 3rem 0;
+            max-width: 45rem;
+        }
+
+        &__cards{
+            min-height: 120vh;
+        }
+
+        &__image{
+            width: 32rem;
+            max-width: 45rem;
+            padding: 1rem;
+        }
+
+        &__text{
+            width: 35rem;
+            font-size: 2rem;
+        }
+
+        &__firstcard{
+            flex-direction: row;
+            justify-content: space-between;
+            min-height: auto;
+            height: 35rem;
+            width: 60rem;
+            left: auto; 
+            top: 16rem;
+            right: 12vw;
+            animation-name: move-forward;
+            animation-duration: 0.75s;
+        }
+
+        &__secondcard{
+            flex-direction: row;
+            justify-content: space-between;
+            min-height: auto;
+            height: 35rem;
+            width: 60rem;
+            top: 5vw;
+            left: auto;
+            right: 3vw;
+            animation: none;
+        }
+
+        &__thirdcard{
+            display: flex;
+            top: 3vw;
+            left: auto;
+            right: 1vw;
+        }
+
+        &__lastcard{
+            top: 1vw;
+            left: auto;
+            right: -1vw;
+            animation: none;
+            animation-name: move-backward;
+            animation-duration: 0.75s;
+        }
+
+        &__motto{
+            font-size: 2.25rem;
+            max-width: 45rem;
+            margin: 0 4rem;
+        }
+
+        &__description{
+            color: $color-white;
+            font-size: 1.35rem;
+            max-width: 65rem;
+            margin: 1rem 4rem;
+        }
+
+        &__button{
+            font-size: 1.35rem;
+            padding: 1rem;
+            border-radius: 2rem;
+            margin-bottom: 4rem;
+        }
+
+    }
+
+}
+
+@keyframes cross-fade-blur {
+    0% {filter: blur(4px);}
+    25% {filter: blur(3px);}
+    50% {filter: blur(2px);}
+    75% {filter: blur(1px);}
+	100% {filter: blur(0px);}
+}
+
+@keyframes move-card-first {
+    0% {
+      transform: translate(61vw, 0);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-card-second {
+    0% {
+      transform: translate(120vw, 0);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-card-third {
+    0% {
+      transform: translate(60vw, 0);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-forward {
+    0% {
+      transform: translate(10vw, -10vw);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-backward {
+    0% {
+      transform: translate(-16vw, 12vw);
+    }
+    
+    100% {
+      transform: translate(0, 0);
     }
 }
