@@ -188,6 +188,87 @@
     }
 
     @include desktop{
+        &__title{
+            font-size: 4rem;
+            margin: 3rem 0;
+            max-width: 45rem;
+        }
+
+        &__cards{
+            min-height: 120vh;
+        }
+
+        &__image{
+            width: 32rem;
+            max-width: 45rem;
+            padding: 1rem;
+        }
+
+        &__text{
+            width: 35rem;
+            font-size: 2rem;
+        }
+
+        &__firstcard{
+            flex-direction: row;
+            justify-content: space-between;
+            min-height: auto;
+            height: 35rem;
+            width: 60rem;
+            left: auto; 
+            top: 16rem;
+            right: 12vw;
+            animation-name: move-forward;
+            animation-duration: 0.75s;
+        }
+
+        &__secondcard{
+            flex-direction: row;
+            justify-content: space-between;
+            min-height: auto;
+            height: 35rem;
+            width: 60rem;
+            top: 5vw;
+            left: auto;
+            right: 3vw;
+            animation: none;
+        }
+
+        &__thirdcard{
+            display: flex;
+            top: 3vw;
+            left: auto;
+            right: 1vw;
+        }
+
+        &__lastcard{
+            top: 1vw;
+            left: auto;
+            right: -1vw;
+            animation: none;
+            animation-name: move-backward;
+            animation-duration: 0.75s;
+        }
+
+        &__motto{
+            font-size: 2.25rem;
+            max-width: 45rem;
+            margin: 0 4rem;
+        }
+
+        &__description{
+            color: $color-white;
+            font-size: 1.35rem;
+            max-width: 65rem;
+            margin: 1rem 4rem;
+        }
+
+        &__button{
+            font-size: 1.35rem;
+            padding: 1rem;
+            border-radius: 2rem;
+            margin-bottom: 4rem;
+        }
 
     }
 
@@ -231,3 +312,22 @@
     }
 }
 
+@keyframes move-forward {
+    0% {
+      transform: translate(10vw, -10vw);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
+
+@keyframes move-backward {
+    0% {
+      transform: translate(-16vw, 12vw);
+    }
+    
+    100% {
+      transform: translate(0, 0);
+    }
+}
